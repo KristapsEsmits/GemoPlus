@@ -3,19 +3,59 @@ body {
 }
 
 .menu {
-    position: relative;
-    width: 300px;
-    height: 960px;
+    position: absolute;
+    width: 20%;
+    height: 100%;
     background-color: #534a53;
-}
-
-.panel {
-    position: relative;
-    width: 1646px;
-    height: 321px;
+    top: 0;
+    left: 0;
+  }
+  
+  .panel {
+    position: absolute;
+    width: 80%;
+    height: 30%;
+    background-color: #47474750;
+    left: 20%;
+    top: 0;
+  }
+  
+  .content { 
+    position: absolute;
+    width: 80%;
+    height: 70%;
     background-color: #e0e0e050;
-}
+    left: 20%;
+    top: 30%;
+  }
 
-.content {
+  .logo {
+    position: absolute;
+    width: 350px;
+    height: 200px;
+  }
 
-}
+  .btn-panel {
+    margin-top: 200px;
+    margin-left: 50px;
+  }
+
+  .menu-btn {
+    margin-top:20px;
+    width: 15rem;
+    padding: 0.5rem 0.5rem;
+    background-color: #ffcc00;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+  
+    &:hover{
+      color: #2a2ea9;
+      background-color: #fff
+    }
+  }
+  
