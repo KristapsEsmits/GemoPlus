@@ -14,23 +14,24 @@
 <body>
     <section>
         <header class="menu">
-            <img class="logo" src="resources/img/logo.png" alt="logo">
+            <a onClick="Funkcija0()"><img class="logo" src="resources/img/logo.png" alt="logo"></a>
             <div class="btn-panel">
                 <button class="menu-btn">Preces</button>
                 <button class="menu-btn">Noliktava</button>
                 <button class="menu-btn">Pirkumi</button>
                 <button class="menu-btn">Inventarizācija</button>
                 <button class="menu-btn">Klienti</button>
-                <button class="menu-btn">Darbinieki</button>
+                <a onClick="Funkcija()"><button class="menu-btn">Darbinieki</button></a>
                 <button class="menu-btn">Reģistrs</button>
             </div>
         </header>
         <div class="panel">
-    
+            <a href="index.html"><button class="exit-btn">Iziet</button></a>
         </div>
         <div class="content">
-    
+            <embed id="embed" class="html-embed" type="text/html" src="nothing.html"> 
         </div>
     </section>
+    <script src="resources/js/main.js"></script>
 </body>
 </html>

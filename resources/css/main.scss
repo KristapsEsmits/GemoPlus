@@ -4,7 +4,7 @@ body {
 
 .menu {
     position: absolute;
-    width: 20%;
+    width: 15%;
     height: 100%;
     background-color: #534a53;
     top: 0;
@@ -13,40 +13,59 @@ body {
   
   .panel {
     position: absolute;
-    width: 80%;
-    height: 30%;
+    width: 85%;
+    height: 20%;
     background-color: #47474750;
-    left: 20%;
+    left: 15%;
     top: 0;
   }
   
   .content { 
     position: absolute;
-    width: 80%;
-    height: 70%;
+    width: 85%;
+    height: 80%;
     background-color: #e0e0e050;
-    left: 20%;
-    top: 30%;
+    left: 15%;
+    top: 20%;
   }
 
   .logo {
     position: absolute;
-    width: 350px;
-    height: 200px;
+    width: 100%;
+    height: 18%;
   }
 
   .btn-panel {
-    margin-top: 200px;
-    margin-left: 50px;
+    margin-top: 70%;
   }
 
   .menu-btn {
-    margin-top:20px;
-    width: 15rem;
+    margin-top: 2%;
+    width: 100%;
     padding: 0.5rem 0.5rem;
-    background-color: #ffcc00;
+    background-color: #534a53;
     color: #fff;
-    border-radius: 50px;
+    font-size: 1.1rem;
+    border:#000000;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+  
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.493)
+    }
+  }
+  
+  .exit-btn {
+    position: absolute;
+    margin-left: 88%;
+    margin-top:20px;
+    width: 10rem;
+    height: 3rem;
+    padding: 0.5rem 0.5rem;
+    background-color: rgba(66, 3, 3, 0.644);
+    color: #fff;
+    border-radius: 10px;
     font-size: 1.1rem;
     border: none;
     outline: none;
@@ -54,8 +73,17 @@ body {
     transition: .3s;
   
     &:hover{
-      color: #2a2ea9;
-      background-color: #fff
+      background-color: rgba(66, 3, 3, 0.842)
     }
+  }
+
+  .html-embed {
+    position: absolute;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    width: 96%;
+    height: 91%;
   }
   
