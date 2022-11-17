@@ -33,6 +33,7 @@ body {
   position: absolute;
   width: 100%;
   height: 18%;
+  cursor: pointer;
 }
 
 .btn-panel {
