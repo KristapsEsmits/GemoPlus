@@ -5,3 +5,4 @@
   * Kristaps Ešmits
   * Raivo Nikolajenko
   * Andis Poļakovs
+### Links uz mājaslapu: https://kristaps2004.github.io/GemoPlus/
