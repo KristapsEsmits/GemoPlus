@@ -25,6 +25,7 @@ body {
 .content .logo {
   width: 550px;
   height: 300px;
+  cursor: pointer;
 }
 
 .content .input {
