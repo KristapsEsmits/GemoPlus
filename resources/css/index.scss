@@ -58,3 +58,66 @@ body {
         }
     }
 }
+#popupwindow{
+    background-color: rgba(0, 0, 0, 30%);
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+#popup{
+    position: absolute;
+    width: 550px;
+    height: 350px;
+    background-color: rgba(255,255,255,100%);
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+
+
+    button{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding: 8px 50px;
+        background-color: red;
+        border: 0;
+        margin-bottom: 15px;
+        margin-right: 15px;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        font-family: 'Poppins', sans-serif;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: rgba(200,25,25,100%);
+    }
+
+    img{
+        width: 125px;
+    }
+    p{
+        color: black;
+        text-align: center;
+        font-size: 25px;
+        transform: translate(0,+50%);
+        font-weight: 1000;
+    }
+}
+
+.banner{
+    width: 100%;
+    background-color: #534a53;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: -1px;
+}

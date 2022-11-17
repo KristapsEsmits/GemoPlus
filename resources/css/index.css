@@ -6,27 +6,20 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .content {
   position: relative;
-  display: -ms-grid;
   display: grid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-top: 50px;
 }
-
 .content .logo {
   width: 550px;
   height: 300px;
 }
-
 .content .input {
   width: 350px;
   height: 40px;
@@ -34,11 +27,10 @@ body {
   margin-left: 100px;
   margin-bottom: 22px;
   padding-left: 1rem;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: none;
   outline: none;
 }
-
 .content .btn {
   margin-left: 320px;
   width: 150px;
@@ -48,23 +40,79 @@ body {
   outline: none;
   border: none;
   cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
+  transition: 0.3s;
 }
-
 .content .btn:hover {
   background-color: #e0b310;
 }
-
 .content .fbtn {
   width: 150px;
   color: white;
   margin-left: 110px;
   text-decoration: none;
 }
-
 .content .fbtn:hover {
   background: none;
   text-decoration: underline;
 }
-/*# sourceMappingURL=index.css.map */
+
+#popupwindow {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+#popup {
+  position: absolute;
+  width: 550px;
+  height: 350px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 50%;
+  right: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#popup button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 8px 50px;
+  background-color: red;
+  border: 0;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+#popup button:hover {
+  background-color: rgb(200, 25, 25);
+}
+#popup img {
+  width: 125px;
+}
+#popup p {
+  color: black;
+  text-align: center;
+  font-size: 25px;
+  transform: translate(0, 50%);
+  font-weight: 1000;
+}
+
+.banner {
+  width: 100%;
+  background-color: #534a53;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-top: -1px;
+}/*# sourceMappingURL=index.css.map */
