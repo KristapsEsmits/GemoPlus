@@ -1,3 +1,8 @@
+<?php
+include("Auth.php");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,10 +31,10 @@
             </div>
         </header>
         <div class="panel">
-            <a href="index.html"><button class="exit-btn">Iziet</button></a>
+            <a href="index.php"><button class="exit-btn">Iziet</button></a>
         </div>
         <div class="content">
-            <embed id="embed" class="html-embed" type="text/html" src="nothing.html"> 
+            <embed id="embed" class="html-embed" type="text/html" src="nothing.php"> 
         </div>
     </section>
     <script src="resources/js/main.js"></script>
