@@ -19,7 +19,7 @@ if (isset($_POST['username'])){
 	    $_SESSION['username'] = $username;
 	    header("Location: main.php");
          }else{
-            echo "Parole vai lietotājvārds ir nepareizs!<div class='Janaklase'>Piemers</div>"; # Šeit vari implementot divus utt ,lai parādīu to ,ka nav pareiza skaistāk, es vnk augšējā stūri ar echo uzmetu :D!
+            echo "<div class='NepareizaParole'>Parole vai lietotājvārds ir nepareizs!</div>"; # Šeit vari implementot divus utt ,lai parādīu to ,ka nav pareiza skaistāk, es vnk augšējā stūri ar echo uzmetu :D!
         }
     }else{
 ?>
@@ -39,7 +39,6 @@ if (isset($_POST['username'])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="resources/css/index.css"/>
-
 </head>
 <body>
     <form class="contact-box" action="" method="post" name="login">
@@ -57,7 +56,7 @@ if (isset($_POST['username'])){
                 <img src="resources/img/logo.png">
             </div>
             <button id="closepopup">Aizvērt</button>
-            <p>Ja aizmirsāt paroli kontaktējieties ar Jūsu administrātoru!</p>
+            <p>Ja aizmirsāt paroli kontaktējieties ar administrātoru!</p>
         </div>
     </div>
     <script src="resources/js/index.js"></script>

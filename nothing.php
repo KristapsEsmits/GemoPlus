@@ -19,6 +19,7 @@ include 'Auth.php';
 <body>
     <div>
         <img class="img" src="resources/img/s.png" alt="zzz">
+        <h1>Nothing to see here!<h1>
     </div>
 </body>
 </html>

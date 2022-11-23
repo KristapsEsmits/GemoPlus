@@ -25,10 +25,8 @@ include 'Auth.php';
         <input type="email" class="input" placeholder="Lietotājvārds" required>
         <input type="password" class="input" placeholder="Parole" required>
         <input type="radio" id="html" name="fav_language" value="HTML">
-        <label for="html">Ir Admin</label><br>
-        <input type="radio" id="css" name="fav_language" value="CSS">
-        <label for="css">Nav Admin</label><br>
         <button class="btn">Pievienot</button>
+        <button id="close-btn">Atcelt</button>
     </div>
     <div class="list">
         

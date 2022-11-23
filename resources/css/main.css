@@ -15,7 +15,7 @@ body {
   position: absolute;
   width: 85%;
   height: 20%;
-  background-color: rgba(71, 71, 71, 0.3137254902);
+  background-color: #47474750;
   left: 15%;
   top: 0;
 }
@@ -24,7 +24,7 @@ body {
   position: absolute;
   width: 85%;
   height: 80%;
-  background-color: rgba(224, 224, 224, 0.3137254902);
+  background-color: #e0e0e050;
   left: 15%;
   top: 20%;
 }
@@ -50,8 +50,10 @@ body {
   border: #000000;
   outline: none;
   cursor: pointer;
-  transition: 0.3s;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
+
 .menu-btn:hover {
   background-color: rgba(255, 255, 255, 0.493);
 }
@@ -70,8 +72,10 @@ body {
   border: none;
   outline: none;
   cursor: pointer;
-  transition: 0.3s;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
+
 .exit-btn:hover {
   background-color: rgba(66, 3, 3, 0.842);
 }
@@ -84,4 +88,5 @@ body {
   margin-bottom: 2rem;
   width: 96%;
   height: 91%;
-}/*# sourceMappingURL=main.css.map */
+}
+/*# sourceMappingURL=main.css.map */

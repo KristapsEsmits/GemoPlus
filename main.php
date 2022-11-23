@@ -21,12 +21,12 @@ include("Auth.php");
         <header class="menu">
             <a onClick="Funkcija0()"><img class="logo" src="resources/img/logo.png" alt="logo"></a>
             <div class="btn-panel">
-                <button class="menu-btn">Preces</button>
+                <a onClick="Funkcija1()"><button class="menu-btn">Preces</button>
                 <button class="menu-btn">Noliktava</button>
                 <button class="menu-btn">Pirkumi</button>
                 <button class="menu-btn">Inventarizācija</button>
                 <button class="menu-btn">Klienti</button>
-                <a onClick="Funkcija()"><button class="menu-btn">Darbinieki</button></a>
+                <a onClick="Funkcija2()"><button class="menu-btn">Darbinieki</button></a>
                 <button class="menu-btn">Reģistrs</button>
             </div>
         </header>
