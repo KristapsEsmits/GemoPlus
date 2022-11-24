@@ -1,7 +1,11 @@
-document.getElementById("forgotbtn").addEventListener("click", function() {
-    document.getElementById("popupwindow").style.display = "block";
-});
+function Funkcija0(){
+    document.getElementById("embed").src = "nothing.php";
+    }
 
-document.getElementById("closepopup").addEventListener("click", function() {
-    document.getElementById("popupwindow").style.display = "none";
-});
+function Funkcija1(){
+    document.getElementById("embed").src = "preces.php";
+    }
+
+function Funkcija2(){
+    document.getElementById("embed").src = "darbinieki.php";
+    }

@@ -1,160 +1,92 @@
 body {
-  margin: 1.5em;
-  min-height: 90vh;
+  margin: none;
+}
+
+.menu {
+  position: absolute;
+  width: 15%;
+  height: 100%;
   background-color: #534a53;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  font-family: 'Poppins', sans-serif;
+  top: 0;
+  left: 0;
+}
+
+.panel {
+  position: absolute;
+  width: 85%;
+  height: 20%;
+  background-color: #47474750;
+  left: 15%;
+  top: 0;
 }
 
 .content {
-  position: relative;
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 50px;
+  position: absolute;
+  width: 85%;
+  height: 80%;
+  background-color: #e0e0e050;
+  left: 15%;
+  top: 20%;
 }
 
-.content .logo {
-  width: 550px;
-  height: 300px;
+.logo {
+  position: absolute;
+  width: 100%;
+  height: 18%;
+  cursor: pointer;
 }
 
-.content .input {
-  width: 350px;
-  height: 40px;
-  border-radius: 1em;
-  margin-left: 100px;
-  margin-bottom: 22px;
-  padding-left: 1rem;
-  background-color: white;
-  border: none;
+.btn-panel {
+  margin-top: 70%;
+}
+
+.menu-btn {
+  margin-top: 2%;
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  background-color: #534a53;
+  color: #fff;
+  font-size: 1.1rem;
+  border: #000000;
   outline: none;
-}
-
-.content .btn {
-  margin-left: 320px;
-  width: 150px;
-  height: 50px;
-  background-color: #f7c309;
-  border-radius: 1em;
-  outline: none;
-  border: none;
   cursor: pointer;
   -webkit-transition: .3s;
   transition: .3s;
 }
 
-.content .btn:hover {
-  background-color: #e0b310;
+.menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.493);
 }
 
-.content .fbtn {
-  width: 150px;
-  color: white;
-  margin-left: 110px;
-  text-decoration: none;
-}
-
-.content .fbtn:hover {
-  background: none;
-  text-decoration: underline;
-}
-
-#popupwindow {
-  background-color: rgba(0, 0, 0, 0.479);
-  display: none;
+.exit-btn {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-}
-
-#popupwindow #popup {
-  position: absolute;
-  width: 70%;
-  height: 350px;
-  background-color: white;
-  border-radius: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 50%;
-  right: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-#popupwindow #popup button {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding: 8px 50px;
-  background-color: #420303;
-  border: 0;
-  margin-bottom: 15px;
-  margin-right: 15px;
+  margin-left: 88%;
+  margin-top: 20px;
+  width: 10rem;
+  height: 3rem;
+  padding: 0.5rem 0.5rem;
+  background-color: rgba(66, 3, 3, 0.644);
+  color: #fff;
   border-radius: 10px;
-  color: white;
-  font-size: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
   cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
-#popupwindow #popup button:hover {
+.exit-btn:hover {
   background-color: rgba(66, 3, 3, 0.842);
 }
 
-#popupwindow #popup img {
-  width: 125px;
-}
-
-#popupwindow #popup p {
-  color: black;
-  text-align: center;
-  padding-left: 5%;
-  padding-right: 5%;
-  font-size: 130%;
-  -webkit-transform: translate(0, 50%);
-          transform: translate(0, 50%);
-  font-weight: 1000;
-}
-
-.banner {
-  width: 100%;
-  background-color: #534a53;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  margin-top: -1px;
-}
-
-.NepareizaParole {
+.html-embed {
   position: absolute;
-  color: white;
-  margin-top: 270px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 350px;
-  left: 50%;
-  right: 50%;
-  margin-left: -165px;
-}
-
-@media only screen and (min-width: 800px) {
-  #popupwindow #popup {
-    width: 550px;
-  }
-  #popupwindow #popup p {
-    font-size: 25px;
-  }
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  width: 96%;
+  height: 91%;
 }
 /*# sourceMappingURL=index.css.map */

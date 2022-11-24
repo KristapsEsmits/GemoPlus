@@ -32,7 +32,7 @@ if (isset($_REQUEST['username'])){
 
 
     if($result){
-      echo("<h1>Veiksmīgi pievienots</h1>");
+      echo("<h1 id='veiksmigi'>Lietotājs veiksmīgi pievienots!</h1>");
     }
 }
 
@@ -57,21 +57,21 @@ if (isset($_REQUEST['username'])){
         <button id="add-btn">Pievienot Lietotāju</button>
         <form action="" method="post">
           <div id="add-user">
-              <input name="name" type="text" class="input" placeholder="Vārds" required>
-              <input name="lastname" type="text" class="input" placeholder="Uzvārds" required>
-              <input name="phone" type="tel" class="input" placeholder="Telefona numurs" required>
-              <input name="username" type="text" class="input" placeholder="Lietotājvārds" required>
-              <input name="password" type="password" class="input" placeholder="Parole" required>
+              <input name="name" type="text" id="input" placeholder="Vārds" required>
+              <input name="lastname" type="text" id="input" placeholder="Uzvārds" required>
+              <input name="phone" type="tel" id="input" placeholder="Telefona numurs" required>
+              <input name="username" type="text" id="input" placeholder="Lietotājvārds" required>
+              <input name="password" type="password" id="input" placeholder="Parole" required>
               <input name="admin" type="checkbox" id="html" name="fav_language" value="HTML">
-              <input name=submit type="submit" value="Pievienot">
               <label class="txt">Ir Admin</label>
+              <input class="btn" name=submit type="submit" value="Pievienot">
               <button id="close-btn">Atcelt</button>
           </div>
         </form>
     </div>
     <div class="list">
     <div class="tabulaBox">
-        <table class="tabula">
+        <table id="customers">
           <tr class="tabula">
             <th class="teksts">ID</th>
             <th class="teksts">Lietotajvārds</th>
@@ -87,31 +87,18 @@ if (isset($_REQUEST['username'])){
             $result = mysqli_query($con,$query);
             while($row = mysqli_fetch_array($result))
             {
-          
             echo "<tr class='tabula'>";
-
-            echo "<td class='tabula'>" . $row['Lietotaja_ID'] . "</td>";
-          
-            echo "<td class='tabula'>" . $row['Lietotajvards'] . "</td>";
-          
-            echo "<td class='tabula'>" . $row['Parole'] . "</td>";
-          
-            echo "<td class='tabula'>" . $row['Vards'] . "</td>";
-
-            echo "<td class='tabula'>" . $row['Uzvards'] . "</td>";
-
-            echo "<td class='tabula'>" . $row['Talr_Nr'] . "</td>";
-          
-            echo "<td class='tabula'>" . $row['Admin'] . "</td>";
-
+            echo "<td>" . $row['Lietotaja_ID'] . "</td>";    
+            echo "<td>" . $row['Lietotajvards'] . "</td>";          
+            echo "<td>" . $row['Parole'] . "</td>";          
+            echo "<td>" . $row['Vards'] . "</td>";
+            echo "<td>" . $row['Uzvards'] . "</td>";
+            echo "<td>" . $row['Talr_Nr'] . "</td>";          
+            echo "<td>" . $row['Admin'] . "</td>";
             echo "<td><a href='roll.html'><button id=dzest>Delete</button></a><br><a href='roll.html'><button id=labot>Update</button></a></td>";
-
-            echo "</tr>";
-          
-            }
-          
+            echo "</tr>";        
+            }          
           echo "</table>";
-
           mysqli_close($con);
           ?>
     </div>

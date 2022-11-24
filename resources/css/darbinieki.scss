@@ -30,7 +30,7 @@ body{
     #add-user {
         display: none;
         
-        .input {
+        #input {
             position: relative;
             margin-top: 20px;
             width: 15%;
@@ -93,24 +93,14 @@ body{
 
 .tabulaBox{
     display: block;
-    max-height: 500px;
-    width: 96%;
+    max-height: 490px;
     overflow: auto;
     margin-top: 20px;
     margin-left: 40px;
     margin-bottom: 40px;
-  }
+}
 
-  .tabula {
-    border-collapse: collapse;
-    border: solid 2px #000000;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  #dzest {
+#dzest {
     width: 100px;
     height: 30px;
     background: #f70909;
@@ -120,9 +110,9 @@ body{
     border: 1px solid transparent;
     margin-top: 10px;
     margin-left: 10px;
-  }
-  
-  #labot {
+}
+
+#labot {
     width: 100px;
     height: 30px;
     background: #f7c309;
@@ -133,5 +123,38 @@ body{
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
-  }
+    }
 
+#veiksmigi {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    left: 50%;
+    right: 50%;
+    margin-left: -250px;
+    z-index: 2;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 96%;    
+}
+  
+#customers td, #customers th {
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #534a53;
+    color: white;
+}

@@ -13,7 +13,7 @@ require("db_con.php");
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="resources/css/main.css"/>
+        <link rel="stylesheet" href="resources/css/index.css"/>
     </head>
 <body>
     <section>
@@ -36,6 +36,6 @@ require("db_con.php");
             <embed id="embed" class="html-embed" type="text/html" src="nothing.php"> 
         </div>
     </section>
-    <script src="resources/js/main.js"></script>
+    <script src="resources/js/index.js"></script>
 </body>
 </html>
