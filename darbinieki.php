@@ -35,8 +35,6 @@ if (isset($_REQUEST['username'])){
       echo("<h1 id='veiksmigi'>Lietotājs veiksmīgi pievienots!</h1>");
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -57,11 +55,11 @@ if (isset($_REQUEST['username'])){
         <button id="add-btn">Pievienot Lietotāju</button>
         <form action="" method="post">
           <div id="add-user">
-              <input name="name" type="text" id="input" placeholder="Vārds" required>
-              <input name="lastname" type="text" id="input" placeholder="Uzvārds" required>
-              <input name="phone" type="tel" id="input" placeholder="Telefona numurs" required>
-              <input name="username" type="text" id="input" placeholder="Lietotājvārds" required>
-              <input name="password" type="password" id="input" placeholder="Parole" required>
+              <input name="name" type="text" class="input" placeholder="Vārds" required>
+              <input name="lastname" type="text" class="input" placeholder="Uzvārds" required>
+              <input name="phone" type="tel" class="input" placeholder="Telefona numurs" required>
+              <input name="username" type="text" class="input" placeholder="Lietotājvārds" required>
+              <input name="password" type="password" class="input" placeholder="Parole" required>
               <input name="admin" type="checkbox" id="html" name="fav_language" value="HTML">
               <label class="txt">Ir Admin</label>
               <input class="btn" name=submit type="submit" value="Pievienot">

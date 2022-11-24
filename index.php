@@ -26,7 +26,7 @@ require("backend/db_con.php");
                 <button class="menu-btn">Inventarizācija</button>
                 <button class="menu-btn">Klienti</button>
                 <a onClick="Funkcija2()"><button class="menu-btn">Darbinieki</button></a>
-                <button class="menu-btn">Reģistrs</button>
+                <a onClick="Funkcija3()"><button class="menu-btn">Kategorijas</button>
             </div>
         </header>
         <div class="panel">

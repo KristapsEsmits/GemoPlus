@@ -18,13 +18,24 @@ require('backend/db_con.php');
     </head>
 <body>
     <div class="Fields">
-        <input type="text" class="input" placeholder="Vārds" required>
-        <input type="text" class="input" placeholder="Uzvārds" required>
-        <input type="tel" class="input" placeholder="Telefona numurs" required>
-        <input type="email" class="input" placeholder="Lietotājvārds" required>
-        <input type="password" class="input" placeholder="Parole" required>
-        <button class="btn">Pievienot</button>
-        <button id="close-btn">Atcelt</button>
+        <button id="add-btn">Pievienot Preci</button>
+        <form action="" method="post">
+            <div id="add-prece">
+                <!--Pagaidu-->
+                <input name="" type="text" class="input" placeholder="Nosaukums" required>
+                <input name="" type="date" class="input" placeholder="Datums" required>
+                <input name="" type="tel" class="input" placeholder="Skaits" required>
+                <input name="" type="text" class="input" placeholder="Termiņš" required>
+                <input name="" type="password" class="input" placeholder="Cena PVN" required>
+                <input name="" type="password" class="input" placeholder="Cena Bez PVN" required>
+                <input name="" type="password" class="input" placeholder="Pārdotais daudzums" required>
+                <input name="" type="password" class="input" placeholder="Atlikums" required>
+                <!--dropdown kategorija-->
+                <!--kurš pievienoja-->
+                <input class="btn" name=submit type="submit" value="Pievienot">
+                <button id="close-btn">Atcelt</button>
+            </div>
+        </form>
     </div>
     <div class="list">
         

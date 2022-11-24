@@ -36,7 +36,7 @@ body {
   display: none;
 }
 
-.Fields #add-user #input {
+.Fields #add-user .input {
   position: relative;
   margin-top: 20px;
   width: 15%;

@@ -9,3 +9,7 @@ function Funkcija1(){
 function Funkcija2(){
     document.getElementById("embed").src = "darbinieki.php";
     }
+
+function Funkcija3(){
+    document.getElementById("embed").src = "kategorijas.php";
+    }
