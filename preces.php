@@ -1,5 +1,6 @@
 <?php
 include 'Auth.php';
+require('db_con.php');
 ?>
 
 
