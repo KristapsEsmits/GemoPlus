@@ -1,6 +1,6 @@
 <?php
-include("Auth.php");
-require("db_con.php");
+include("backend/Auth.php");
+require("backend/db_con.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

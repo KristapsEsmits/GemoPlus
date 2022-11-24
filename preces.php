@@ -1,9 +1,7 @@
 <?php
-include 'Auth.php';
-require('db_con.php');
+include 'backend/Auth.php';
+require('backend/db_con.php');
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +23,6 @@ require('db_con.php');
         <input type="tel" class="input" placeholder="Telefona numurs" required>
         <input type="email" class="input" placeholder="Lietotājvārds" required>
         <input type="password" class="input" placeholder="Parole" required>
-        <input type="radio" id="html" name="fav_language" value="HTML">
         <button class="btn">Pievienot</button>
         <button id="close-btn">Atcelt</button>
     </div>
