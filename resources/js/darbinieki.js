@@ -6,10 +6,10 @@ document.getElementById("add-btn").addEventListener("click", function() {
 
 document.getElementById("close-btn").addEventListener("click", function() {
     //nestrādā tīrīšana
-    /*var getValue= document.getElementsByClassName("input");
-        while (getValue.value !="") {
-           getValue.value = "";
-        }*/
+    let getValue = document.getElementsByClassName("input");
+    for (const element of getValue) {
+        element.value = "";
+    }
     document.getElementById("add-user").style.display = "none";
     document.getElementById("add-btn").style.display = "block";
 });
