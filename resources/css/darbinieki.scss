@@ -27,10 +27,7 @@ body{
         }
     }
 
-    #add-user {
-        display: none;
-        
-        .input {
+    .input {
             position: relative;
             margin-top: 20px;
             width: 15%;
@@ -43,39 +40,42 @@ body{
             background-color: white;
             border: none;
             outline: none;
+    }
+
+    .btn {
+        margin-left: 20px;
+        width: 80px;
+        height: 30px;
+        background-color: #f7c309;
+        border-radius: 6px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+            background-color: #e0b310;
         }
+    }
+
+    #close-btn {
+        margin-left: 20px;
+        width: 80px;
+        height: 30px;
+        background-color: #f70909;
+        border-radius: 6px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: .3s;
     
-        .btn {
-            margin-left: 20px;
-            width: 80px;
-            height: 30px;
-            background-color: #f7c309;
-            border-radius: 6px;
-            outline: none;
-            border: none;
-            cursor: pointer;
-            transition: .3s;
-    
-            &:hover {
-                background-color: #e0b310;
-            }
+        &:hover {
+            background-color: #f70909a2;
         }
-    
-        #close-btn {
-            margin-left: 20px;
-            width: 80px;
-            height: 30px;
-            background-color: #f70909;
-            border-radius: 6px;
-            outline: none;
-            border: none;
-            cursor: pointer;
-            transition: .3s;
-        
-            &:hover {
-                background-color: #f70909a2;
-            }
-        }
+    }
+
+    #add-user {
+        display: none;
         
         .txt {
             color: white;
@@ -154,7 +154,11 @@ body{
 #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #534a53;
     color: white;
+}
+
+#customers td {
+    text-align: center;
 }

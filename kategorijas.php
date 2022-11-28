@@ -47,6 +47,7 @@ if (isset($_REQUEST['nosaukums'])){
             <tr class="tabula">
                 <th class="teksts">ID</th>
                 <th class="teksts">Nosaukums</th>
+                <th class="teksts">Rediģēt</th>
             </tr>
             <?php
                 $query = "SELECT * FROM kategorijas";
