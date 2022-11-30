@@ -5,7 +5,6 @@ document.getElementById("add-btn").addEventListener("click", function() {
 });
 
 document.getElementById("close-btn").addEventListener("click", function() {
-    //nestrādā tīrīšana
     let getValue = document.getElementsByClassName("input");
     for (const element of getValue) {
         element.value = "";
