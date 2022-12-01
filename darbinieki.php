@@ -57,7 +57,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
           <div id="add-user">
               <input name="name" type="text" class="input" minlength="8" maxlength="25" placeholder="Vārds" required>
               <input name="lastname" type="text" class="input" minlength="8" maxlength="25" placeholder="Uzvārds" required>
-              <input name="phone" type="tel" pattern="[0-9]{8}" class="input" placeholder="Telefona numurs" required>
+              <input name="phone" type="tel" pattern="[0-9]{8}" maxlength="8" class="input" placeholder="Telefona numurs" required>
               <input name="username" type="text" class="input" minlength="8" maxlength="25" placeholder="Lietotājvārds" required>
               <input name="password" type="password" class="input" minlength="8" maxlength="25" placeholder="Parole" required>
               <input name="admin" type="checkbox" id="html" name="fav_language" value="HTML">
