@@ -58,6 +58,6 @@ if (isset($_POST['username'])){
             <p>Ja aizmirsāt paroli kontaktējieties ar administrātoru!</p>
         </div>
     </div>
-    <script src="resources/js/ilogin.js"></script>
+    <script src="resources/js/login.js"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@ require("backend/db_con.php");
             </div>
         </header>
         <div class="panel">
-            <a href="logout.php"><button class="exit-btn">Iziet</button></a>
+            <a href="backend/logout.php"><button class="exit-btn">Iziet</button></a>
         </div>
         <div class="content">
             <embed id="embed" class="html-embed" type="text/html" src="nothing.php"> 
