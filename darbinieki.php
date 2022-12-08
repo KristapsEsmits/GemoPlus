@@ -81,25 +81,25 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
             <th class="teksts">Rediģēt</th>
           </tr>
           <?php
-            $query = "SELECT * FROM lietotaji";
-            $result = mysqli_query($con,$query);
-            while($row = mysqli_fetch_array($result))
-            {
-            echo "<tr class='tabula'>";
-            echo "<td>" . $row['Lietotaja_ID'] . "</td>";    
-            echo "<td>" . $row['Lietotajvards'] . "</td>";          
-            echo "<td>" . $row['Parole'] . "</td>";          
-            echo "<td>" . $row['Vards'] . "</td>";
-            echo "<td>" . $row['Uzvards'] . "</td>";
-            echo "<td>" . $row['Talr_Nr'] . "</td>";          
-            echo "<td>" . $row['Admin'] . "</td>";
-            echo "<td><a href='roll.html'><button id=dzest>Delete</button></a><br><a href='roll.html'><button id=labot>Update</button></a></td>";
-            echo "</tr>";        
-            }          
-          echo "</table>";
-          mysqli_close($con);
+          $query = "SELECT * FROM lietotaji";
+          $result = mysqli_query($con,$query);
+          while($row = mysqli_fetch_array($result)) {
+            ?>
+            <tr class="table">
+            <td><?php echo $row["Lietotaja_ID"]; ?></td>
+            <td><?php echo $row['Lietotajvards']; ?></td>
+            <td><?php echo $row['Parole']; ?></td>
+            <td><?php echo $row['Vards']; ?></td>
+            <td><?php echo $row['Uzvards']; ?></td>
+            <td><?php echo $row['Talr_Nr']; ?></td>
+            <td><?php echo $row['Admin']; ?></td>
+            <td><a href="deleteacc.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="deleteacc.php?userid=<?php echo $row["Lietotaja_ID"]; ?>"><button id='labot'>Labot</button></a></td>
+            </tr>
+            <?php
+            }
           ?>
     </div>
     <script src="resources/js/darbinieki.js"></script>
 </body>
 </html>
+
