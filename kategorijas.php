@@ -34,7 +34,7 @@ if (isset($_REQUEST['nosaukums'])){
     <div class="Fields">
         <button id="add-btn">Pievienot Kategoriju</button>
         <form action="" method="post">
-            <div id="add-pkategorija">
+            <div id="add-pop">
                 <input name="nosaukums" type="text" class="input" placeholder="Nosaukums" required>
                 <input class="btn" name=submit type="submit" value="Pievienot">
                 <button id="close-btn">Atcelt</button>
@@ -50,19 +50,18 @@ if (isset($_REQUEST['nosaukums'])){
                 <th class="teksts">Rediģēt</th>
             </tr>
             <?php
-                $query = "SELECT * FROM kategorijas";
-                $result = mysqli_query($con,$query);
-                while($row = mysqli_fetch_array($result))
-                {
-                echo "<tr class='tabula'>";
-                echo "<td>" . $row['Kategorijas_ID'] . "</td>";    
-                echo "<td>" . $row['Nosaukums'] . "</td>";          
-                echo "<td><a href='roll.html'><button id=dzest>Delete</button></a><br><a href='roll.html'><button id=labot>Update</button></a></td>";
-                echo "</tr>";        
-                }          
-            echo "</table>";
-            mysqli_close($con);
+          $query = "SELECT * FROM kategorijas";
+          $result = mysqli_query($con,$query);
+          while($row = mysqli_fetch_array($result)) {
             ?>
+            <tr class="table">
+            <td><?php echo $row["Kategorijas_ID"]; ?></td>
+            <td><?php echo $row['Nosaukums']; ?></td>
+            <td><a href="delete.php?Kategorijas_ID=<?php echo $row["Kategorijas_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="delete.php?userid=<?php echo $row["Kategorijas_ID"]; ?>"><button id='labot'>Labot</button></a></td>
+            </tr>
+            <?php
+            }
+          ?>
         </div>
     </div>
     <script src="resources/js/darbinieki.js"></script>

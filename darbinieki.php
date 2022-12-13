@@ -54,7 +54,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
     <div class="Fields">
         <button id="add-btn">Pievienot Lietotāju</button>
         <form action="" method="post">
-          <div id="add-user">
+          <div id="add-pop">
               <input name="name" type="text" class="input" minlength="3" maxlength="25" placeholder="Vārds" required>
               <input name="lastname" type="text" class="input" minlength="3" maxlength="25" placeholder="Uzvārds" required>
               <input name="phone" type="tel" pattern="[2]{1}[0-9]{7}" minlength="8" maxlength="8" class="input" placeholder="Telefona numurs" required>
@@ -93,7 +93,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
             <td><?php echo $row['Uzvards']; ?></td>
             <td><?php echo $row['Talr_Nr']; ?></td>
             <td><?php echo $row['Admin']; ?></td>
-            <td><a href="deleteacc.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="deleteacc.php?userid=<?php echo $row["Lietotaja_ID"]; ?>"><button id='labot'>Labot</button></a></td>
+            <td><a href="delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="delete.php?userid=<?php echo $row["Lietotaja_ID"]; ?>"><button id='labot'>Labot</button></a></td>
             </tr>
             <?php
             }
