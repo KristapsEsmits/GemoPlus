@@ -23,15 +23,15 @@ require('backend/db_con.php');
             <div id="add-pop">
                 <!--Pagaidu-->
                 <input name="" type="text" class="input" placeholder="Nosaukums" required>
-                <input name="" type="date" class="input" placeholder="Datums" required>
-                <input name="" type="tel" class="input" placeholder="Skaits" required>
-                <input name="" type="text" class="input" placeholder="Termiņš" required>
-                <input name="" type="password" class="input" placeholder="Cena PVN" required>
-                <input name="" type="password" class="input" placeholder="Cena Bez PVN" required>
+                <input name="" type="date" class="input" placeholder="Ievešanas datums" required>
+                <input name="" type="date" class="input" placeholder="Termiņš" required>
+                <input name="" type="text" class="input" placeholder="Cena PVN" required>
+                <!--Bez pvn aprēķins-->
+                <input name="" type="text" class="input" placeholder="Skaits" required>
                 <input name="" type="password" class="input" placeholder="Pārdotais daudzums" required>
-                <input name="" type="password" class="input" placeholder="Atlikums" required>
-                <!--dropdown kategorija-->
-                <!--kurš pievienoja-->
+                <!--Atlikuma aprēķins-->
+                <!--dropdown kur izvēlās kategoriju-->
+                <!-- auto kurš pievienoja-->
                 <input class="btn" name=submit type="submit" value="Pievienot">
                 <button id="close-btn">Atcelt</button>
             </div>
@@ -43,11 +43,11 @@ require('backend/db_con.php');
             <tr class="tabula">
                 <th class="teksts">ID</th>
                 <th class="teksts">Nosaukums</th>
-                <th class="teksts">Datums</th>
-                <th class="teksts">Skaits</th>
+                <th class="teksts">Ievašanas datums</th>
                 <th class="teksts">Termiņš</th>
                 <th class="teksts">Cena PVN</th>
                 <th class="teksts">Cena Bez PVN</th>
+                <th class="teksts">Skaits</th>
                 <th class="teksts">Pārdotais daudzums</th>
                 <th class="teksts">Atlikums</th>
                 <th class="teksts">Preces kategorija</th>
@@ -63,10 +63,10 @@ require('backend/db_con.php');
             <td><?php echo $row["Preces_ID"]; ?></td>
             <td><?php echo $row['Preces_nosaukums']; ?></td>
             <td><?php echo $row['Datums']; ?></td>
-            <td><?php echo $row['Skaits']; ?></td>
             <td><?php echo $row['Termins']; ?></td>
             <td><?php echo $row['Cena_PVN']; ?></td>
             <td><?php echo $row['Cena_Bez_PVN']; ?></td>
+            <td><?php echo $row['Skaits']; ?></td>
             <td><?php echo $row['Pārdotais_daudzums']; ?></td>
             <td><?php echo $row['Precu_atlikums']; ?></td>
             <td><?php echo $row['Preces_kategorija']; ?></td>
@@ -78,5 +78,6 @@ require('backend/db_con.php');
           ?>
         </div>
     </div>
+    <script src="resources/js/darbinieki.js"></script>
 </body>
 </html>

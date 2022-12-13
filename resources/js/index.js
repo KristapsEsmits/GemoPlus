@@ -13,3 +13,7 @@ function Funkcija2(){
 function Funkcija3(){
     document.getElementById("embed").src = "kategorijas.php";
     }
+
+function Funkcija4(){
+    document.getElementById("embed").src = "noliktava.php";
+    }
