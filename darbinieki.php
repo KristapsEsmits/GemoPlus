@@ -87,13 +87,13 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
             ?>
             <tr class="table">
             <td><?php echo $row["Lietotaja_ID"]; ?></td>
-            <td><?php echo $row['Lietotajvards']; ?></td>
-            <td><?php echo $row['Parole']; ?></td>
-            <td><?php echo $row['Vards']; ?></td>
-            <td><?php echo $row['Uzvards']; ?></td>
-            <td><?php echo $row['Talr_Nr']; ?></td>
-            <td><?php echo $row['Admin']; ?></td>
-            <td><a href="delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="delete.php?userid=<?php echo $row["Lietotaja_ID"]; ?>"><button id='labot'>Labot</button></a></td>
+            <td name='lala' class='edits' contenteditable="false"><?php echo $row['Lietotajvards']; ?></td>
+            <td class='edits' contenteditable="false"><?php echo $row['Parole']; ?></td>
+            <td class='edits' contenteditable="false"><?php echo $row['Vards']; ?></td>
+            <td class='edits' contenteditable="false"><?php echo $row['Uzvards']; ?></td>
+            <td class='edits' contenteditable="false"><?php echo $row['Talr_Nr']; ?></td>
+            <td class='edits' contenteditable="false"><?php echo $row['Admin']; ?></td>
+            <td><a href="delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><button id='labot'>Labot</button><a><form action='editdata.php' method="post"><input type='Submit' style='display:none' value='Apstiprināt' name='aed' id='acceptbtn'></input></form></a></td>
             </tr>
             <?php
             }
@@ -101,5 +101,5 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
     </div>
     <script src="resources/js/darbinieki.js"></script>
 </body>
-</html>
 
+</html>

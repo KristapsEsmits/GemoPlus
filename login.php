@@ -12,13 +12,13 @@ if (isset($_POST['username'])){
 	$password = mysqli_real_escape_string($con,$password);
 
     $query = "SELECT * FROM `lietotaji` WHERE Lietotajvards LIKE '$username' and Parole LIKE '$password'";
-	$result = mysqli_query($con,$query) or die(mysqli_error());
+	$result = mysqli_query($con,$query);
 	$rows = mysqli_num_rows($result);
         if($rows==1){
             $_SESSION['username'] = $username;
             header("Location: index.php");
          }else{
-            echo "<div class='NepareizaParole'>Parole vai lietotājvārds ir nepareizs!</div>"; # Šeit vari implementot divus utt ,lai parādīu to ,ka nav pareiza skaistāk, es vnk augšējā stūri ar echo uzmetu :D!
+            echo "<div class='NepareizaParole'>Parole vai lietotājvārds ir nepareizs!</div>";
         }
     }else{
 ?>

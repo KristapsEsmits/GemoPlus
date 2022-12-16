@@ -11,7 +11,6 @@ mysqli_close($con);
 ?>
 
 <?php
-include 'backend/db_con.php';
 $sql = "DELETE FROM kategorijas WHERE Kategorijas_ID='" . $_GET["Kategorijas_ID"] . "'";
 if (mysqli_query($con, $sql)) {
     header("Location: kategorijas.php");
@@ -22,8 +21,8 @@ if (mysqli_query($con, $sql)) {
 mysqli_close($con);
 ?>
 
+
 <?php
-include 'backend/db_con.php';
 $sql = "DELETE FROM kategorijas WHERE Preces_ID='" . $_GET["Preces_ID"] . "'";
 if (mysqli_query($con, $sql)) {
     header("Location: preces.php");
