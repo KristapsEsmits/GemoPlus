@@ -1,6 +1,6 @@
 <?php
 include 'backend/Auth.php';
-require ('backend/db_con.php');
+require('backend/db_con.php');
 
 
 if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQUEST['phone']) && isset($_REQUEST['name']) && isset($_REQUEST['lastname'])){

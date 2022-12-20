@@ -1,6 +1,23 @@
 <?php
 include 'backend/Auth.php';
 require('backend/db_con.php');
+
+if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs'])){
+
+    $sektors = stripslashes($_REQUEST['sektors']);
+	$sektors  = mysqli_real_escape_string($con,$sektors );
+
+    $stavs = stripslashes($_REQUEST['stavs']);
+	$stavs  = mysqli_real_escape_string($con,$stavs );
+
+    $query = "INSERT INTO noliktava (Sektors,Stavs)
+    VALUES ('$sektors','$stavs')";
+    $result = mysqli_query($con,$query);
+
+    if($result){
+      echo("<h1 id='veiksmigi'>Atrašanās vieta veiksmīgi pievienota!</h1>");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +41,7 @@ require('backend/db_con.php');
                 <input name="" type="text" class="input" placeholder="Sektors" required>
                 <input name="" type="text" class="input" placeholder="Stāvs" required>
                 <!--dropdown kur izvēlās preces_nr-->
+                <input class="btn" name=submit type="submit" value="Pievienot">
                 <button id="close-btn">Atcelt</button>
             </div>
         </form>
