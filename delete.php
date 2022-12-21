@@ -25,7 +25,6 @@ function DelLietotaji() {
 
 function DelKategorija() {
     include 'backend/db_con.php';
-    //echo $row["Kategorijas_ID"];
     $sql = "DELETE FROM kategorijas WHERE Kategorijas_ID='" . $_GET["Kategorijas_ID"] . "'";
     if (mysqli_query($con, $sql)) {
         header("Location: kategorijas.php");

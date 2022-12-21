@@ -2,7 +2,7 @@
 include 'backend/Auth.php';
 require('backend/db_con.php');
 
-if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs'])){
+if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs']) && isset($_REQUEST['Preces_NR'])){
 
     $sektors = stripslashes($_REQUEST['sektors']);
 	$sektors  = mysqli_real_escape_string($con,$sektors );
@@ -10,8 +10,11 @@ if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs'])){
     $stavs = stripslashes($_REQUEST['stavs']);
 	$stavs  = mysqli_real_escape_string($con,$stavs );
 
-    $query = "INSERT INTO noliktava (Sektors,Stavs)
-    VALUES ('$sektors','$stavs')";
+    $Preces_NR = stripslashes($_REQUEST['Preces_NR']);
+	$Preces_NR  = mysqli_real_escape_string($con,$stavs );
+
+    $query = "INSERT INTO noliktava (Sektors,Stavs,Preces_NR)
+    VALUES ('$sektors','$stavs','$Preces_NR')";
     $result = mysqli_query($con,$query);
 
     if($result){
@@ -38,9 +41,19 @@ if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs'])){
         <button id="add-btn">Pievienot atrašanās vietu</button>
         <form action="" method="post">
             <div id="add-pop">
-                <input name="" type="text" class="input" placeholder="Sektors" required>
-                <input name="" type="text" class="input" placeholder="Stāvs" required>
-                <!--dropdown kur izvēlās preces_nr-->
+                <input name="sektors" type="text" class="input" placeholder="Sektors" required>
+                <input name="stavs" type="text" class="input" placeholder="Stāvs" required>
+                <select name="Preces_NR'">
+                <?php
+                    $query = "SELECT Preces_ID FROM preces";
+                    $result = mysqli_query($con,$query);
+                    while($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <option value=<?php echo $row["Preces_ID"]; ?>><?php echo $row["Preces_ID"]; ?></option>
+                    <?php
+                    }
+                ?>
+                </select>
                 <input class="btn" name=submit type="submit" value="Pievienot">
                 <button id="close-btn">Atcelt</button>
             </div>
