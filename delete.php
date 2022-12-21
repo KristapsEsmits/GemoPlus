@@ -35,6 +35,7 @@ function DelKategorija() {
 } 
 
 function DelPreces() {
+    include 'backend/db_con.php';
     $sql = "DELETE FROM preces WHERE Preces_ID='" . $_GET["Preces_ID"] . "'";
     if (mysqli_query($con, $sql)) {
         header("Location: preces.php");
@@ -45,6 +46,7 @@ function DelPreces() {
 }
 
 function DelNoliktava() {
+    include 'backend/db_con.php';
     $sql = "DELETE FROM noliktava WHERE Plaukta_ID='" . $_GET["Plaukta_ID"] . "'";
     if (mysqli_query($con, $sql)) {
         header("Location: noliktava.php");

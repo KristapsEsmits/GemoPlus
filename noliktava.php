@@ -2,24 +2,27 @@
 include 'backend/Auth.php';
 require('backend/db_con.php');
 
-if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs']) && isset($_REQUEST['Preces_NR'])){
-
+if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs']) && isset($_REQUEST['preces_NR'])){
+    echo("<h1 id='veiksmigi'>slikti</h1>");
     $sektors = stripslashes($_REQUEST['sektors']);
 	$sektors  = mysqli_real_escape_string($con,$sektors );
 
     $stavs = stripslashes($_REQUEST['stavs']);
 	$stavs  = mysqli_real_escape_string($con,$stavs );
 
-    $Preces_NR = stripslashes($_REQUEST['Preces_NR']);
-	$Preces_NR  = mysqli_real_escape_string($con,$stavs );
+    $preces_NR = stripslashes($_REQUEST['preces_NR']);
+	$preces_NR  = mysqli_real_escape_string($con,$stavs );
 
     $query = "INSERT INTO noliktava (Sektors,Stavs,Preces_NR)
-    VALUES ('$sektors','$stavs','$Preces_NR')";
+    VALUES ('$sektors','$stavs','$preces_NR')";
     $result = mysqli_query($con,$query);
 
     if($result){
-      echo("<h1 id='veiksmigi'>Atrašanās vieta veiksmīgi pievienota!</h1>");
+        echo("<h1 id='veiksmigi'>Atrašanās vieta veiksmīgi pievienota!</h1>");
+    }else{
+        echo("<h1 id='veiksmigi'>slikti</h1>");
     }
+
 }
 ?>
 
@@ -43,16 +46,16 @@ if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs']) && isset($_REQUEST[
             <div id="add-pop">
                 <input name="sektors" type="text" class="input" placeholder="Sektors" required>
                 <input name="stavs" type="text" class="input" placeholder="Stāvs" required>
-                <select name="Preces_NR'">
-                <?php
-                    $query = "SELECT Preces_ID FROM preces";
-                    $result = mysqli_query($con,$query);
-                    while($row = mysqli_fetch_array($result)) {
-                    ?>
-                    <option value=<?php echo $row["Preces_ID"]; ?>><?php echo $row["Preces_ID"]; ?></option>
+                <select name="preces_NR'">
                     <?php
-                    }
-                ?>
+                        $query = "SELECT Preces_ID FROM preces";
+                        $result = mysqli_query($con,$query);
+                        while($row = mysqli_fetch_array($result)) {
+                        ?>
+                        <option name="preces_NR" value=<?php echo $row["Preces_ID"]; ?>><?php echo $row["Preces_ID"]; ?></option>
+                        <?php
+                        }
+                    ?>
                 </select>
                 <input class="btn" name=submit type="submit" value="Pievienot">
                 <button id="close-btn">Atcelt</button>
