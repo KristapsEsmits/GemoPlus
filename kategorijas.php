@@ -3,7 +3,6 @@ include 'backend/Auth.php';
 require('backend/db_con.php');
 
 if (isset($_REQUEST['nosaukums'])){
-
     $nosaukums = stripslashes($_REQUEST['nosaukums']);
 	$nosaukums  = mysqli_real_escape_string($con,$nosaukums );
 

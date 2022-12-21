@@ -2,7 +2,7 @@
 include 'backend/Auth.php';
 require('backend/db_con.php');
 
-if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs']) && isset($_REQUEST['preces_NR'])){
+if (isset($_REQUEST['sektors'])){
     echo("<h1 id='veiksmigi'>slikti</h1>");
     $sektors = stripslashes($_REQUEST['sektors']);
 	$sektors  = mysqli_real_escape_string($con,$sektors );
@@ -11,7 +11,7 @@ if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs']) && isset($_REQUEST[
 	$stavs  = mysqli_real_escape_string($con,$stavs );
 
     $preces_NR = stripslashes($_REQUEST['preces_NR']);
-	$preces_NR  = mysqli_real_escape_string($con,$stavs );
+	$preces_NR  = mysqli_real_escape_string($con,$preces_NR );
 
     $query = "INSERT INTO noliktava (Sektors,Stavs,Preces_NR)
     VALUES ('$sektors','$stavs','$preces_NR')";
@@ -19,8 +19,6 @@ if (isset($_REQUEST['sektors']) && isset($_REQUEST['stavs']) && isset($_REQUEST[
 
     if($result){
         echo("<h1 id='veiksmigi'>Atrašanās vieta veiksmīgi pievienota!</h1>");
-    }else{
-        echo("<h1 id='veiksmigi'>slikti</h1>");
     }
 
 }
