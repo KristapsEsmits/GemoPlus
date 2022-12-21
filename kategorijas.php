@@ -12,7 +12,7 @@ if (isset($_REQUEST['nosaukums'])){
     $result = mysqli_query($con,$query);
 
     if($result){
-      echo("<h1 id='veiksmigi'>Kategorija veiksmīgi pievienota!</h1>");
+      echo("<h1 id='veiksmigi'>Veiksmīgi pievienots!</h1>");
     }
 }
 ?>
@@ -57,7 +57,7 @@ if (isset($_REQUEST['nosaukums'])){
             <tr class="table">
             <td><?php echo $row["Kategorijas_ID"]; ?></td>
             <td><?php echo $row['Nosaukums']; ?></td>
-            <td><a href="delete.php?Kategorijas_ID=<?php echo $row["Kategorijas_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="editdata.php>"><button id='labot'>Labot</button></a></td>
+            <td><a href="delete.php?Kategorijas_ID=<?php echo $row["Kategorijas_ID"];?>"><button id='dzest'>Dzēst</button></a><br><a href="editdata.php>"><button id='labot'>Labot</button></a></td>
             </tr>
             <?php
             }
