@@ -16,9 +16,8 @@ if (isset($_REQUEST['sektors'])){
     $result = mysqli_query($con,$query);
 
     if($result){
-        echo("<h1 id='veiksmigi'>Atrašanās vieta veiksmīgi pievienota!</h1>");
+        echo("<h1 id='veiksmigi'>Veiksmīgi pievienots!</h1>");
     }
-
 }
 ?>
 
@@ -40,16 +39,16 @@ if (isset($_REQUEST['sektors'])){
         <button id="add-btn">Pievienot atrašanās vietu</button>
         <form action="" method="post">
             <div id="add-pop">
-                <input name="sektors" type="text" class="input" placeholder="Sektors" required>
-                <input name="stavs" type="text" class="input" placeholder="Stāvs" required>
+                <input name="sektors" type="number" class="input" placeholder="Sektors" required>
+                <input name="stavs" type="number" class="input" placeholder="Stāvs" required>
               
                 <select name="preces_NR">
                     <?php
-                        $query = "SELECT Preces_ID FROM preces";
+                        $query = "SELECT Preces_ID, Preces_nosaukums FROM preces";
                         $result = mysqli_query($con,$query);
                         while($row = mysqli_fetch_array($result)) {
                         ?>
-                        <option name="preces_NR" value=<?php echo $row["Preces_ID"]; ?>><?php echo $row["Preces_ID"]; ?></option>
+                        <option name="preces_NR" value=<?php echo $row["Preces_ID"]; ?>><?php echo $row["Preces_nosaukums"]; ?></option>
                         <?php
                         }
                     ?>
