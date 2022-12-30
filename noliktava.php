@@ -78,7 +78,7 @@ if (isset($_REQUEST['sektors'])){
             <td><?php echo $row['Sektors']; ?></td>
             <td><?php echo $row['Stavs']; ?></td>
             <td><?php echo $row['Preces_NR']; ?></td>
-            <td><a href="delete.php?Plaukta_ID=<?php echo $row["Plaukta_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="delete.php?userid=<?php echo $row["Plaukta_ID"]; ?>"><button id='labot'>Labot</button></a></td>
+            <td><a href="backend/delete.php?Plaukta_ID=<?php echo $row["Plaukta_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Plaukta_ID"]; ?>"><button id='labot'>Labot</button></a></td>
             </tr>
             <?php
             }

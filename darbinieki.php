@@ -93,7 +93,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
             <td class='edits' contenteditable="false"><?php echo $row['Uzvards']; ?></td>
             <td class='edits' contenteditable="false"><?php echo $row['Talr_Nr']; ?></td>
             <td class='edits' contenteditable="false"><?php echo $row['Admin']; ?></td>
-            <td><a href="delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><button id='labot'>Labot</button><a><form action='editdata.php' method="post"><input type='Submit' style='display:none' value='Apstiprināt' name='aed' id='acceptbtn'></input></form></a></td>
+            <td><a href="backend/delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><button id='labot'>Labot</button><a><form action='editdata.php' method="post"><input type='Submit' style='display:none' value='Apstiprināt' name='aed' id='acceptbtn'></input></form></a></td>
             </tr>
             <?php
             }
