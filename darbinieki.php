@@ -48,7 +48,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="resources/css/darbinieki.css"/>
+        <link rel="stylesheet" href="resources/css/table.css"/>
     </head>
 <body>
     <div class="Fields">
@@ -69,8 +69,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
     </div>
     <div class="list">
     <div class="tabulaBox">
-        <table id="customers">
-          <tr class="tabula">
+        <table id="trow">
             <th class="teksts">ID</th>
             <th class="teksts">Lietotajvārds</th>
             <th class="teksts">Parole</th>
@@ -79,7 +78,6 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
             <th class="teksts">Tālr_NR</th>
             <th class="teksts">Admin</th>
             <th class="teksts">Rediģēt</th>
-          </tr>
           <?php
           $query = "SELECT * FROM lietotaji";
           $result = mysqli_query($con,$query);

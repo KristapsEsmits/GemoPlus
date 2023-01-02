@@ -144,21 +144,21 @@ body {
   z-index: 2;
 }
 
-#customers {
+#trow {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 96%;
 }
 
-#customers td, #customers th {
+#trow td, #trow th {
   padding: 8px;
 }
 
-#customers tr:nth-child(even) {
+#trow tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#customers th {
+#trow th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
@@ -166,7 +166,7 @@ body {
   color: white;
 }
 
-#customers td {
+#trow td {
   text-align: center;
 }
-/*# sourceMappingURL=darbinieki.css.map */
+/*# sourceMappingURL=table.css.map */

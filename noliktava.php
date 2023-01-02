@@ -32,7 +32,7 @@ if (isset($_REQUEST['sektors'])){
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="resources/css/darbinieki.css"/>
+        <link rel="stylesheet" href="resources/css/table.css"/>
     </head>
 <body>
     <div class="Fields">
@@ -60,14 +60,12 @@ if (isset($_REQUEST['sektors'])){
     </div>
     <div class="list">
         <div class="tabulaBox">
-            <table id="customers">
-            <tr class="tabula">
+            <table id="trow">
                 <th class="teksts">ID</th>
                 <th class="teksts">Sektors</th>
                 <th class="teksts">Stāvs</th>
                 <th class="teksts">Preces_NR</th>
                 <th class="teksts">Rediģēt</th>
-            </tr>
             <?php
           $query = "SELECT * FROM noliktava";
           $result = mysqli_query($con,$query);
