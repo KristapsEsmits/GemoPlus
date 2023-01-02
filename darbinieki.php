@@ -30,7 +30,6 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
   VALUES ('$username','$password','$name','$lastname','$phone','$admin')";
   $result = mysqli_query($con,$query);
 
-
     if($result){
       echo("<h1 id='veiksmigi'>Veiksmīgi pievienots!</h1>");
     }
@@ -68,36 +67,39 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
         </form>
     </div>
     <div class="list">
-    <div class="tabulaBox">
-        <table id="trow">
-            <th class="teksts">ID</th>
-            <th class="teksts">Lietotajvārds</th>
-            <th class="teksts">Parole</th>
-            <th class="teksts">Vārds</th>
-            <th class="teksts">Uzvārds</th>
-            <th class="teksts">Tālr_NR</th>
-            <th class="teksts">Admin</th>
-            <th class="teksts">Rediģēt</th>
-          <?php
-          $query = "SELECT * FROM lietotaji";
-          $result = mysqli_query($con,$query);
-          while($row = mysqli_fetch_array($result)) {
-            ?>
-            <tr class="table">
-            <td><?php echo $row["Lietotaja_ID"]; ?></td>
-            <td name='lala' class='edits' contenteditable="false"><?php echo $row['Lietotajvards']; ?></td>
-            <td class='edits' contenteditable="false"><?php echo $row['Parole']; ?></td>
-            <td class='edits' contenteditable="false"><?php echo $row['Vards']; ?></td>
-            <td class='edits' contenteditable="false"><?php echo $row['Uzvards']; ?></td>
-            <td class='edits' contenteditable="false"><?php echo $row['Talr_Nr']; ?></td>
-            <td class='edits' contenteditable="false"><?php echo $row['Admin']; ?></td>
-            <td><a href="backend/delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><button id='labot'>Labot</button><a><form action='editdata.php' method="post"><input type='Submit' style='display:none' value='Apstiprināt' name='aed' id='acceptbtn'></input></form></a></td>
-            </tr>
-            <?php
-            }
-          ?>
+        <div class="tabulaBox">
+            <table class="table-sortable" id="trow">
+                <thead>
+                    <th>ID</th>
+                    <th>Lietotajvārds</th>
+                    <th>Parole</th>
+                    <th>Vārds</th>
+                    <th>Uzvārds</th>
+                    <th>Tālr_NR</th>
+                    <th>Admin</th>
+                    <th>Rediģēt</th>
+                </thead>
+                <?php
+                    $query = "SELECT * FROM lietotaji";
+                    $result = mysqli_query($con,$query);
+                    while($row = mysqli_fetch_array($result)) {
+                ?>
+                <tr class="table">
+                    <td><?php echo $row["Lietotaja_ID"]; ?></td>
+                    <td name='lala' class='edits' contenteditable="false"><?php echo $row['Lietotajvards']; ?></td>
+                    <td class='edits' contenteditable="false"><?php echo $row['Parole']; ?></td>
+                    <td class='edits' contenteditable="false"><?php echo $row['Vards']; ?></td>
+                    <td class='edits' contenteditable="false"><?php echo $row['Uzvards']; ?></td>
+                    <td class='edits' contenteditable="false"><?php echo $row['Talr_Nr']; ?></td>
+                    <td class='edits' contenteditable="false"><?php echo $row['Admin']; ?></td>
+                    <td><a href="backend/delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><button id='labot'>Labot</button><a><form action='editdata.php' method="post"><input type='Submit' style='display:none' value='Apstiprināt' name='aed' id='acceptbtn'></input></form></a></td>
+                </tr>
+                <?php
+                }
+              ?>
+            </table>
+        </div>
     </div>
-    <script src="resources/js/darbinieki.js"></script>
+    <script src="resources/js/table.js"></script>
 </body>
-
 </html>

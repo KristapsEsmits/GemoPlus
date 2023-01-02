@@ -41,7 +41,6 @@ if (isset($_REQUEST['sektors'])){
             <div id="add-pop">
                 <input name="sektors" type="number" class="input" placeholder="Sektors" required>
                 <input name="stavs" type="number" class="input" placeholder="Stāvs" required>
-              
                 <select name="preces_NR">
                     <?php
                         $query = "SELECT Preces_ID, Preces_nosaukums FROM preces";
@@ -60,29 +59,32 @@ if (isset($_REQUEST['sektors'])){
     </div>
     <div class="list">
         <div class="tabulaBox">
-            <table id="trow">
-                <th class="teksts">ID</th>
-                <th class="teksts">Sektors</th>
-                <th class="teksts">Stāvs</th>
-                <th class="teksts">Preces_NR</th>
-                <th class="teksts">Rediģēt</th>
-            <?php
-          $query = "SELECT * FROM noliktava";
-          $result = mysqli_query($con,$query);
-          while($row = mysqli_fetch_array($result)) {
-            ?>
-            <tr class="table">
-            <td><?php echo $row["Plaukta_ID"]; ?></td>
-            <td><?php echo $row['Sektors']; ?></td>
-            <td><?php echo $row['Stavs']; ?></td>
-            <td><?php echo $row['Preces_NR']; ?></td>
-            <td><a href="backend/delete.php?Plaukta_ID=<?php echo $row["Plaukta_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Plaukta_ID"]; ?>"><button id='labot'>Labot</button></a></td>
-            </tr>
-            <?php
-            }
-          ?>
+            <table class="table-sortable" id="trow">
+                <thead>
+                    <th>ID</th>
+                    <th>Sektors</th>
+                    <th>Stāvs</th>
+                    <th>Preces_NR</th>
+                    <th>Rediģēt</th>
+                </thead>
+                <?php
+                    $query = "SELECT * FROM noliktava";
+                    $result = mysqli_query($con,$query);
+                    while($row = mysqli_fetch_array($result)) {
+                ?>
+                <tr class="table">
+                    <td><?php echo $row["Plaukta_ID"]; ?></td>
+                    <td><?php echo $row['Sektors']; ?></td>
+                    <td><?php echo $row['Stavs']; ?></td>
+                    <td><?php echo $row['Preces_NR']; ?></td>
+                    <td><a href="backend/delete.php?Plaukta_ID=<?php echo $row["Plaukta_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Plaukta_ID"]; ?>"><button id='labot'>Labot</button></a></td>
+                </tr>
+                <?php
+                    }
+                ?>
+            </table>
         </div>
     </div>
-    <script src="resources/js/darbinieki.js"></script>
+    <script src="resources/js/table.js"></script>
 </body>
 </html>

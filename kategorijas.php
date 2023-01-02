@@ -42,25 +42,28 @@ if (isset($_REQUEST['nosaukums'])){
     </div>
     <div class="list">
         <div class="tabulaBox">
-            <table id="trow">
-                <th class="teksts">ID</th>
-                <th class="teksts">Nosaukums</th>
-                <th class="teksts">Rediģēt</th>
-            <?php
-          $query = "SELECT * FROM kategorijas";
-          $result = mysqli_query($con,$query);
-          while($row = mysqli_fetch_array($result)) {
-            ?>
-            <tr class="table">
-            <td><?php echo $row["Kategorijas_ID"]; ?></td>
-            <td><?php echo $row['Nosaukums']; ?></td>
-            <td><a href="backend/delete.php?Kategorijas_ID=<?php echo $row["Kategorijas_ID"];?>"><button id='dzest'>Dzēst</button></a><br><a href="editdata.php>"><button id='labot'>Labot</button></a></td>
-            </tr>
-            <?php
-            }
-          ?>
+            <table class="table-sortable" id="trow">
+                <thead>
+                    <th>ID</th>
+                    <th>Nosaukums</th>
+                    <th>Rediģēt</th>
+                </thead>
+                <?php
+                    $query = "SELECT * FROM kategorijas";
+                    $result = mysqli_query($con,$query);
+                    while($row = mysqli_fetch_array($result)) {
+                ?>
+                <tr class="table">
+                    <td><?php echo $row["Kategorijas_ID"]; ?></td>
+                    <td><?php echo $row['Nosaukums']; ?></td>
+                    <td><a href="backend/delete.php?Kategorijas_ID=<?php echo $row["Kategorijas_ID"];?>"><button id='dzest'>Dzēst</button></a><br><a href="editdata.php>"><button id='labot'>Labot</button></a></td>
+                </tr>
+                <?php
+                    }
+                ?>
+            </table>
         </div>
     </div>
-    <script src="resources/js/darbinieki.js"></script>
+    <script src="resources/js/table.js"></script>
 </body>
 </html>

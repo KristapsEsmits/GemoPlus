@@ -91,43 +91,46 @@ if (isset($_REQUEST['preces_nosaukums'])){
     </div>
     <div class="list">
         <div class="tabulaBox">
-            <table id="trow">
-                <th class="teksts">ID</th>
-                <th class="teksts">Nosaukums</th>
-                <th class="teksts">Ievešanas datums</th>
-                <th class="teksts">Termiņš</th>
-                <th class="teksts">Cena PVN</th>
-                <th class="teksts">Cena Bez PVN</th>
-                <th class="teksts">Skaits</th>
-                <th class="teksts">Pārdotais daudzums</th>
-                <th class="teksts">Atlikums</th>
-                <th class="teksts">Preces kategorija</th>
-                <th class="teksts">Lietotāja ID</th>
-                <th class="teksts">Rediģēt</th>
-            <?php
-          $query = "SELECT * FROM preces";
-          $result = mysqli_query($con,$query);
-          while($row = mysqli_fetch_array($result)) {
-            ?>
-            <tr class="table">
-            <td><?php echo $row["Preces_ID"]; ?></td>
-            <td><?php echo $row['Preces_nosaukums']; ?></td>
-            <td><?php echo $row['Datums']; ?></td>
-            <td><?php echo $row['Termins']; ?></td>
-            <td><?php echo $row['Cena_PVN']; ?></td>
-            <td><?php echo $row['Cena_Bez_PVN']; ?></td>
-            <td><?php echo $row['Skaits']; ?></td>
-            <td><?php echo $row['Pārdotais_daudzums']; ?></td>
-            <td><?php echo $row['Precu_atlikums']; ?></td>
-            <td><?php echo $row['Preces_kategorija']; ?></td>
-            <td><?php echo $row['Lietotaja_ID']; ?></td>
-            <td><a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Preces_ID"]; ?>"><button id='labot'>Labot</button></a></td>
-            </tr>
-            <?php
-            }
-          ?>
+            <table class="table-sortable" id="trow">
+                <thead>
+                    <th>ID</th>
+                    <th>Nosaukums</th>
+                    <th>Ievešanas datums</th>
+                    <th>Termiņš</th>
+                    <th>Cena PVN</th>
+                    <th>Cena Bez PVN</th>
+                    <th>Skaits</th>
+                    <th>Pārdotais daudzums</th>
+                    <th>Atlikums</th>
+                    <th>Preces kategorija</th>
+                    <th>Lietotāja ID</th>
+                    <th>Rediģēt</th>
+                </thead>
+                <?php
+                    $query = "SELECT * FROM preces";
+                    $result = mysqli_query($con,$query);
+                    while($row = mysqli_fetch_array($result)) {
+                ?>
+                <tr class="table">
+                    <td><?php echo $row["Preces_ID"]; ?></td>
+                    <td><?php echo $row['Preces_nosaukums']; ?></td>
+                    <td><?php echo $row['Datums']; ?></td>
+                    <td><?php echo $row['Termins']; ?></td>
+                    <td><?php echo $row['Cena_PVN']; ?></td>
+                    <td><?php echo $row['Cena_Bez_PVN']; ?></td>
+                    <td><?php echo $row['Skaits']; ?></td>
+                    <td><?php echo $row['Pārdotais_daudzums']; ?></td>
+                    <td><?php echo $row['Precu_atlikums']; ?></td>
+                    <td><?php echo $row['Preces_kategorija']; ?></td>
+                    <td><?php echo $row['Lietotaja_ID']; ?></td>
+                    <td><a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Preces_ID"]; ?>"><button id='labot'>Labot</button></a></td>
+                </tr>
+                <?php
+                    }
+                ?>
+            </table>
         </div>
     </div>
-    <script src="resources/js/darbinieki.js"></script>
+    <script src="resources/js/table.js"></script>
 </body>
 </html>

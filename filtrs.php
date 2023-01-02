@@ -6,17 +6,16 @@ require('backend/db_con.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="main.css" >
-	<link rel="stylesheet" href="resources/css/darbinieki.css"/>
+	<link rel="stylesheet" href="resources/css/table.css"/>
 </head>
 <body>
 <div class="list">
 	<div class="tabulaBox">
-		<table class="table-sortable" id="customers">
+		<table class="table-sortable" id="trow">
 				<thead>
-					<th class="teksts">ID</th>
-					<th class="teksts">Nosaukums</th>
-					<th class="teksts">Rediģēt</th>
+					<th>ID</th>
+					<th>Nosaukums</th>
+					<th>Rediģēt</th>
 				</thead>
 				<tbody>
 				<?php
@@ -37,7 +36,7 @@ require('backend/db_con.php');
 	</div>
 </div>
 </div>
-	<script src="filtrs.js"></script>
+	<script src="resources/js/table.js"></script>
 </body>
 </html>
 
