@@ -76,7 +76,7 @@ require('backend/db_con.php');
 	</div>
 </div>
 </div>
-	<script src="html.js"></script>
+	<script src="filtrs.js"></script>
 </body>
 </html>
 
