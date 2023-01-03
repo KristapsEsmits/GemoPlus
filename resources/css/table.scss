@@ -33,13 +33,28 @@ body{
             width: 15%;
             height: 30px;
             border-radius: 10px;
-            margin-left: 100px;
+            margin-left: 50px;
             margin-bottom: 22px;
             padding-left: 1rem;
             padding-right: 1rem;
             background-color: white;
             border: none;
             outline: none;
+    }
+
+    .sinput {
+        position: relative;
+        margin-top: 20px;
+        width: 8%;
+        height: 30px;
+        border-radius: 10px;
+        margin-left: 50px;
+        margin-bottom: 22px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background-color: white;
+        border: none;
+        outline: none;
     }
 
     .btn {
@@ -141,52 +156,55 @@ body{
 #trow {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 96%;    
-}
+    width: 96%;
+  }
   
-#trow td, #trow th {
+  #trow td, #trow th {
     padding: 8px;
-}
+  }
+  
+  #trow tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
 
-#trow tr:nth-child(even){background-color: #f2f2f2;}
-
-
-#trow th {
+  #trow tr:nth-child(odd) {
+    background-color: #cfcfcf;
+  }
+  
+  #trow th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
     background-color: #534a53;
     color: white;
-}
-
-#trow td {
+  }
+  
+  #trow td {
     text-align: center;
-}
-
-.table-sortable th {
-	cursor: pointer;
-}
-
-.table-sortable {
-    :last-child {
-        cursor: default;
-    }
-}
-
-.table-sortable .th-sort-asc::after {
-	content: "\25b4";
-}
-
-.table-sortable .th-sort-desc::after {
-	content: "\25be";
-}
-
-.table-sortable .th-sort-asc::after,
-.table-sortable .th-sort-desc::after {
-	margin-left: 5px;
-}
-
-.table-sortable .th-sort-asc,
-.table-sortable .th-sort-desc {
-	background: rgba(0, 0, 0, 0.1);
-}
+  }
+  
+  .table-sortable th {
+    cursor: pointer;
+  }
+  
+  .table-sortable :last-child {
+    cursor: default;
+  }
+  
+  .table-sortable .th-sort-asc::after {
+    content: "▴";
+  }
+  
+  .table-sortable .th-sort-desc::after {
+    content: "▾";
+  }
+  
+  .table-sortable .th-sort-asc::after,
+  .table-sortable .th-sort-desc::after {
+    margin-left: 5px;
+  }
+  
+  .table-sortable .th-sort-asc,
+  .table-sortable .th-sort-desc {
+    background: rgba(0, 0, 0, 0.1);
+  }

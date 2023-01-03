@@ -41,7 +41,7 @@ if (isset($_REQUEST['sektors'])){
             <div id="add-pop">
                 <input name="sektors" type="number" class="input" placeholder="Sektors" required>
                 <input name="stavs" type="number" class="input" placeholder="Stāvs" required>
-                <select name="preces_NR">
+                <select class="sinput" name="preces_NR">
                     <?php
                         $query = "SELECT Preces_ID, Preces_nosaukums FROM preces";
                         $result = mysqli_query($con,$query);

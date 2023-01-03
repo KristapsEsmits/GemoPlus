@@ -12,8 +12,8 @@ if (isset($_REQUEST['preces_nosaukums'])){
     $termins = stripslashes($_REQUEST['termins']);
 	$termins  = mysqli_real_escape_string($con,$termins );
 
-    $cena_PVN = stripslashes($_REQUEST['cena_PVN']);
-	$cena_PVN  = mysqli_real_escape_string($con,$cena_PVN );
+    $cena_bez_PVN = stripslashes($_REQUEST['cena_bez_PVN']);
+	$cena_bez_PVN  = mysqli_real_escape_string($con,$cena_bez_PVN );
 
     $skaits = stripslashes($_REQUEST['skaits']);
 	$skaits = mysqli_real_escape_string($con,$skaits );
@@ -25,8 +25,8 @@ if (isset($_REQUEST['preces_nosaukums'])){
 
     $lietotaja_ID = ($_REQUEST['lietotaja_ID']);
 
-    $query = "INSERT INTO preces (Preces_nosaukums, Datums, Termins, Cena_PVN, Skaits, Pārdotais_daudzums, Preces_kategorija, Lietotaja_ID)
-    VALUES ('$preces_nosaukums','$datums','$termins','$cena_PVN','$skaits','$daudzums','$preces_kategorija','$lietotaja_ID')";
+    $query = "INSERT INTO preces (Preces_nosaukums, Datums, Termins, Cena_Bez_PVN, Skaits, Pārdotais_daudzums, Preces_kategorija, Lietotaja_ID)
+    VALUES ('$preces_nosaukums','$datums','$termins','$cena_bez_PVN','$skaits','$daudzums','$preces_kategorija','$lietotaja_ID')";
     $result = mysqli_query($con,$query);
 
     if($result){
@@ -56,13 +56,17 @@ if (isset($_REQUEST['preces_nosaukums'])){
                 <!--Pagaidu-->
                 <input name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" required>
                 <input name="datums" type="date" class="input" placeholder="Ievešanas datums" required>
-                <input name="termins" type="date" class="input" placeholder="Termiņš" required>
-                <input name="cena_PVN" type="text" class="input" placeholder="Cena PVN" required>
-                <!--Bez pvn aprēķins-->
+                <input name="termins" type="date" class="input" placeholder="Termiņš">
+                <input name="cena_bez_PVN" type="text" class="input" placeholder="Cena bez PVN" required>
+                <select class="sinput" name="preces_kategorija">
+                    <option value="21">21%</option>
+                    <option value="12">12%</option>
+                    <option value="5">5%</option>
+                </select>
                 <input name="skaits" type="text" class="input" placeholder="Skaits" required>
                 <input name="daudzums" type="text" class="input" placeholder="Pārdotais daudzums" required>
                 <!--Atlikuma aprēķins-->
-                <select name="preces_kategorija">
+                <select class="sinput" name="preces_kategorija">
                     <?php
                         $query = "SELECT * FROM kategorijas";
                         $result = mysqli_query($con,$query);
@@ -73,7 +77,7 @@ if (isset($_REQUEST['preces_nosaukums'])){
                         }
                     ?>
                 </select>
-                <select name="lietotaja_ID">
+                <select class="sinput" name="lietotaja_ID">
                     <?php
                         $query = "SELECT Lietotaja_ID, Lietotajvards FROM lietotaji";
                         $result = mysqli_query($con,$query);
@@ -97,8 +101,8 @@ if (isset($_REQUEST['preces_nosaukums'])){
                     <th>Nosaukums</th>
                     <th>Ievešanas datums</th>
                     <th>Termiņš</th>
-                    <th>Cena PVN</th>
                     <th>Cena Bez PVN</th>
+                    <th>Cena PVN</th>
                     <th>Skaits</th>
                     <th>Pārdotais daudzums</th>
                     <th>Atlikums</th>
@@ -116,8 +120,8 @@ if (isset($_REQUEST['preces_nosaukums'])){
                     <td><?php echo $row['Preces_nosaukums']; ?></td>
                     <td><?php echo $row['Datums']; ?></td>
                     <td><?php echo $row['Termins']; ?></td>
-                    <td><?php echo $row['Cena_PVN']; ?></td>
                     <td><?php echo $row['Cena_Bez_PVN']; ?></td>
+                    <td><?php echo $row['Cena_PVN']; ?></td>
                     <td><?php echo $row['Skaits']; ?></td>
                     <td><?php echo $row['Pārdotais_daudzums']; ?></td>
                     <td><?php echo $row['Precu_atlikums']; ?></td>
