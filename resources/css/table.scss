@@ -167,6 +167,12 @@ body{
 	cursor: pointer;
 }
 
+.table-sortable {
+    :last-child {
+        cursor: default;
+    }
+}
+
 .table-sortable .th-sort-asc::after {
 	content: "\25b4";
 }
