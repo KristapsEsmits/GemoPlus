@@ -9,10 +9,10 @@ if (isset($_REQUEST['sektors'])){
     $stavs = stripslashes($_REQUEST['stavs']);
 	$stavs  = mysqli_real_escape_string($con,$stavs );
 
-    $preces_NR = ($_REQUEST['preces_NR']);
+    $kategorijas_ID = ($_REQUEST['kategorijas_ID']);
 
-    $query = "INSERT INTO noliktava (Sektors,Stavs,Preces_NR)
-    VALUES ('$sektors','$stavs','$preces_NR')";
+    $query = "INSERT INTO noliktava (Sektors,Stavs,Kategorijas_ID)
+    VALUES ('$sektors','$stavs','$kategorijas_ID')";
     $result = mysqli_query($con,$query);
 
     if($result){
@@ -41,13 +41,13 @@ if (isset($_REQUEST['sektors'])){
             <div id="add-pop">
                 <input name="sektors" type="number" class="input" placeholder="Sektors" required>
                 <input name="stavs" type="number" class="input" placeholder="Stāvs" required>
-                <select class="sinput" name="preces_NR">
+                <select class="sinput" name="kategorijas_ID">
                     <?php
-                        $query = "SELECT Preces_ID, Preces_nosaukums FROM preces";
+                        $query = "SELECT Kategorijas_ID, Nosaukums FROM kategorijas";
                         $result = mysqli_query($con,$query);
                         while($row = mysqli_fetch_array($result)) {
                         ?>
-                        <option name="preces_NR" value=<?php echo $row["Preces_ID"]; ?>><?php echo $row["Preces_nosaukums"]; ?></option>
+                        <option name="kategorijas_ID" value=<?php echo $row["Kategorijas_ID"]; ?>><?php echo $row["Nosaukums"]; ?></option>
                         <?php
                         }
                     ?>
@@ -64,11 +64,13 @@ if (isset($_REQUEST['sektors'])){
                     <th>ID</th>
                     <th>Sektors</th>
                     <th>Stāvs</th>
-                    <th>Preces_NR</th>
+                    <th>Kategorijas_Nosaukums</th>
                     <th>Rediģēt</th>
                 </thead>
                 <?php
-                    $query = "SELECT * FROM noliktava";
+                    $query = "SELECT noliktava.Plaukta_ID, noliktava.Sektors, noliktava.Stavs, kategorijas.Nosaukums FROM noliktava
+                              LEFT JOIN kategorijas
+                                     ON noliktava.Kategorijas_ID = kategorijas.Kategorijas_ID";
                     $result = mysqli_query($con,$query);
                     while($row = mysqli_fetch_array($result)) {
                 ?>
@@ -76,7 +78,7 @@ if (isset($_REQUEST['sektors'])){
                     <td><?php echo $row["Plaukta_ID"]; ?></td>
                     <td><?php echo $row['Sektors']; ?></td>
                     <td><?php echo $row['Stavs']; ?></td>
-                    <td><?php echo $row['Preces_NR']; ?></td>
+                    <td><?php echo $row['Nosaukums']; ?></td>
                     <td><a href="backend/delete.php?Plaukta_ID=<?php echo $row["Plaukta_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Plaukta_ID"]; ?>"><button id='labot'>Labot</button></a></td>
                 </tr>
                 <?php
