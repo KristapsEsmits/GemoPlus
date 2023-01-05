@@ -111,7 +111,8 @@ if (isset($_REQUEST['preces_nosaukums'])){
                     <th>Rediģēt</th>
                 </thead>
                 <?php
-                    $query = "SELECT * FROM preces";
+                    $query = "SELECT preces.*, kategorijas.Nosaukums FROM preces
+                              LEFT JOIN kategorijas ON preces.Preces_kategorija = kategorijas.Kategorijas_ID";
                     $result = mysqli_query($con,$query);
                     while($row = mysqli_fetch_array($result)) {
                 ?>
@@ -119,13 +120,19 @@ if (isset($_REQUEST['preces_nosaukums'])){
                     <td><?php echo $row["Preces_ID"]; ?></td>
                     <td><?php echo $row['Preces_nosaukums']; ?></td>
                     <td><?php echo $row['Datums']; ?></td>
-                    <td><?php echo $row['Termins']; ?></td>
+                    <td><?php 
+                    if ($row['Termins'] == "0000-00-00") {
+                        echo "<i>Beztermiņa</i>";
+                    } else {
+                        echo $row['Termins'];
+                    }
+                    ?></td>
                     <td><?php echo $row['Cena_Bez_PVN']; ?></td>
                     <td><?php echo $row['Cena_PVN']; ?></td>
                     <td><?php echo $row['Skaits']; ?></td>
                     <td><?php echo $row['Pārdotais_daudzums']; ?></td>
                     <td><?php echo $row['Precu_atlikums']; ?></td>
-                    <td><?php echo $row['Preces_kategorija']; ?></td>
+                    <td><?php echo $row['Nosaukums']; ?></td>
                     <td><?php echo $row['Lietotaja_ID']; ?></td>
                     <td><a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Preces_ID"]; ?>"><button id='labot'>Labot</button></a></td>
                 </tr>
