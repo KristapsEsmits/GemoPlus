@@ -15,6 +15,9 @@ if (isset($_REQUEST['preces_nosaukums'])){
     $cena_bez_PVN = stripslashes($_REQUEST['cena_bez_PVN']);
 	$cena_bez_PVN  = mysqli_real_escape_string($con,$cena_bez_PVN );
 
+    $PVN_izvele = stripslashes($_REQUEST['pvn_izvele']);
+    $PVN_izvele = mysqli_real_escape_string($con,$PVN_izvele );
+
     $skaits = stripslashes($_REQUEST['skaits']);
 	$skaits = mysqli_real_escape_string($con,$skaits );
 
@@ -25,8 +28,8 @@ if (isset($_REQUEST['preces_nosaukums'])){
 
     $lietotaja_ID = ($_REQUEST['lietotaja_ID']);
 
-    $query = "INSERT INTO preces (Preces_nosaukums, Datums, Termins, Cena_Bez_PVN, Skaits, Pārdotais_daudzums, Preces_kategorija, Lietotaja_ID)
-    VALUES ('$preces_nosaukums','$datums','$termins','$cena_bez_PVN','$skaits','$daudzums','$preces_kategorija','$lietotaja_ID')";
+    $query = "INSERT INTO preces (Preces_nosaukums, Datums, Termins, Cena_Bez_PVN, PVN, Skaits, Pārdotais_daudzums, Preces_kategorija, Lietotaja_ID)
+    VALUES ('$preces_nosaukums','$datums','$termins','$cena_bez_PVN','$PVN_izvele','$skaits','$daudzums','$preces_kategorija','$lietotaja_ID')";
     $result = mysqli_query($con,$query);
 
     if($result){
@@ -58,7 +61,7 @@ if (isset($_REQUEST['preces_nosaukums'])){
                 <input name="datums" type="date" class="input" placeholder="Ievešanas datums" required>
                 <input name="termins" type="date" class="input" placeholder="Termiņš">
                 <input name="cena_bez_PVN" type="text" class="input" placeholder="Cena bez PVN" required>
-                <select class="sinput" name="preces_kategorija">
+                <select class="sinput" name="pvn_izvele">
                     <option value="21">21%</option>
                     <option value="12">12%</option>
                     <option value="5">5%</option>
@@ -111,7 +114,7 @@ if (isset($_REQUEST['preces_nosaukums'])){
                     <th>Rediģēt</th>
                 </thead>
                 <?php
-                    $query = "SELECT preces.*, kategorijas.Nosaukums FROM preces
+                    $query = "SELECT preces.*, kategorijas.Nosaukums, round((Cena_Bez_PVN + (Cena_Bez_PVN * (PVN*0.01))),2) AS Cena_PVN, (Skaits - Pārdotais_daudzums) AS Precu_atlikums FROM preces
                               LEFT JOIN kategorijas ON preces.Preces_kategorija = kategorijas.Kategorijas_ID";
                     $result = mysqli_query($con,$query);
                     while($row = mysqli_fetch_array($result)) {
