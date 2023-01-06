@@ -26,13 +26,23 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
     $admin = 0;
   }
 
+  // Lietotājvārda aizņemtības? pārbaude
+  $check_query = "SELECT * FROM lietotaji WHERE Lietotajvards = '$username'";
+  $check_result = mysqli_query($con, $check_query);
+  if (mysqli_num_rows($check_result) > 0) {
+    echo("<h1 id='veiksmigi'>Lietotājvārds jau aizņemts!</h1>");
+  } else {
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
   $query = "INSERT INTO lietotaji (Lietotajvards,Parole,Vards,Uzvards,Talr_Nr,Admin)
-  VALUES ('$username','$password','$name','$lastname','$phone','$admin')";
+  VALUES ('$username','$hashedPassword','$name','$lastname','$phone','$admin')";
   $result = mysqli_query($con,$query);
 
     if($result){
       echo("<h1 id='veiksmigi'>Veiksmīgi pievienots!</h1>");
     }
+}
 }
 ?>
 
