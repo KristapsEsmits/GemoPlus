@@ -11,11 +11,12 @@ if (isset($_POST['username'])){
 	$password = stripslashes($_REQUEST['password']);
 	$password = mysqli_real_escape_string($con,$password);
 
-    $query = "SELECT * FROM `lietotaji` WHERE Lietotajvards LIKE '$username' and Parole LIKE '$password'";
+    $query = "SELECT * FROM `lietotaji` WHERE Lietotajvards LIKE '$username'";
 	$result = mysqli_query($con,$query);
-	$rows = mysqli_num_rows($result);
-        if($rows==1){
+	$row = mysqli_fetch_array($result);
+        if($row["Lietotajvards"] == $username and password_verify($password, $row["Parole"])){
             $_SESSION['username'] = $username;
+            $_SESSION['userlevel'] = $row["Admin"];
             header("Location: index.php");
          }else{
             echo "<div class='NepareizaParole'>Parole vai lietotājvārds ir nepareizs!</div>";
