@@ -56,9 +56,10 @@ if (isset($_REQUEST['preces_nosaukums'])){
         <button id="add-btn">Pievienot Preci</button>
         <form action="" method="post">
             <div id="add-pop">
-                <!--Pagaidu-->
                 <input name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" required>
-                <input name="datums" type="date" class="input" placeholder="Ievešanas datums" required>
+                <label class="ievesana">Ievešanas datums:</label>
+                <input name="datums" type="date" class="input" placeholder="Ievešanas datums" value="Ievešanas datums" required>
+                <label class="termins">Termiņš:</label>
                 <input name="termins" type="date" class="input" placeholder="Termiņš">
                 <input name="cena_bez_PVN" type="text" class="input" placeholder="Cena bez PVN" required>
                 <select class="sinput" name="pvn_izvele">
@@ -68,7 +69,6 @@ if (isset($_REQUEST['preces_nosaukums'])){
                 </select>
                 <input name="skaits" type="text" class="input" placeholder="Skaits" required>
                 <input name="daudzums" type="text" class="input" placeholder="Pārdotais daudzums" required>
-                <!--Atlikuma aprēķins-->
                 <select class="sinput" name="preces_kategorija">
                     <?php
                         $query = "SELECT * FROM kategorijas";

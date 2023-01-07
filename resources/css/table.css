@@ -215,4 +215,20 @@ body {
 .table-sortable .th-sort-desc {
   background: rgba(0, 0, 0, 0.1);
 }
+
+.ievesana {
+  position: absolute;
+  left: 375px;
+  top: 0px;
+  color: white;
+  font-weight: 100;
+}
+
+.termins {
+  position: absolute;
+  left: 695px;
+  top: 0px;
+  color: white;
+  font-weight: 100;
+}
 /*# sourceMappingURL=table.css.map */
