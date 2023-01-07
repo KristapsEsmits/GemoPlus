@@ -30,40 +30,46 @@ if (isset($_REQUEST['nosaukums'])){
         <link rel="stylesheet" href="resources/css/table.css"/>
     </head>
 <body>
-    <div class="Fields">
-        <button id="add-btn">Pievienot Kategoriju</button>
-        <form action="" method="post">
-            <div id="add-pop">
-                <input name="nosaukums" type="text" class="input" placeholder="Nosaukums" required>
-                <input class="btn" name=submit type="submit" value="Pievienot">
-                <button id="close-btn">Atcelt</button>
-            </div>
-        </form>
-    </div>
-    <div class="list">
-        <div class="tabulaBox">
-            <table class="table-sortable" id="trow">
-                <thead>
-                    <th>ID</th>
-                    <th>Nosaukums</th>
-                    <th>Rediģēt</th>
-                </thead>
-                <?php
-                    $query = "SELECT * FROM kategorijas";
-                    $result = mysqli_query($con,$query);
-                    while($row = mysqli_fetch_array($result)) {
-                ?>
-                <tr class="table">
-                    <td><?php echo $row["Kategorijas_ID"]; ?></td>
-                    <td><?php echo $row['Nosaukums']; ?></td>
-                    <td><a href="backend/delete.php?Kategorijas_ID=<?php echo $row["Kategorijas_ID"];?>"><button id='dzest'>Dzēst</button></a><br><a href="editdata.php>"><button id='labot'>Labot</button></a></td>
-                </tr>
-                <?php
-                    }
-                ?>
-            </table>
+    <?php
+      if ($_SESSION["userlevel"] == 1) { ?>
+        <div class="Fields">
+            <button id="add-btn">Pievienot Kategoriju</button>
+            <form action="" method="post">
+                <div id="add-pop">
+                    <input name="nosaukums" type="text" class="input" placeholder="Nosaukums" required>
+                    <input class="btn" name=submit type="submit" value="Pievienot">
+                    <button id="close-btn">Atcelt</button>
+                </div>
+            </form>
         </div>
-    </div>
-    <script src="resources/js/table.js"></script>
+        <div class="list">
+            <div class="tabulaBox">
+                <table class="table-sortable" id="trow">
+                    <thead>
+                        <th>ID</th>
+                        <th>Nosaukums</th>
+                        <th>Rediģēt</th>
+                    </thead>
+                    <?php
+                        $query = "SELECT * FROM kategorijas";
+                        $result = mysqli_query($con,$query);
+                        while($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <tr class="table">
+                        <td><?php echo $row["Kategorijas_ID"]; ?></td>
+                        <td><?php echo $row['Nosaukums']; ?></td>
+                        <td><a href="backend/delete.php?Kategorijas_ID=<?php echo $row["Kategorijas_ID"];?>"><button id='dzest'>Dzēst</button></a><br><a href="editdata.php>"><button id='labot'>Labot</button></a></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </table>
+            </div>
+        </div>
+        <script src="resources/js/table.js"></script>
+    <?php } else {
+            echo "<h1>get rēkt, tev nav pieejas</h1>";
+        }
+    ?>
 </body>
 </html>
