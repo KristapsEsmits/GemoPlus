@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
 	margin: 0;
 	background-color: #e0e0e050;
@@ -15,3 +16,108 @@ body {
 h1 {
 	text-align: center;
 }
+=======
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url("../img/main.png");
+    background-color: #3f3e3f;
+    background-size: cover;
+    user-select: none;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.568);
+    z-index: -1;
+}
+
+.pc {
+    color: white;
+    position: absolute;
+    left: 210px;
+}
+
+.phone {
+    color: white;
+    position: absolute;
+    right: 220px;
+}
+
+.virsraksts {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    font-size: 60px;
+    font-weight: 10;
+}
+
+.subvirsraksts{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 150px;
+    font-size: 20px;
+}
+
+h2{
+    font-weight: 10;
+}
+
+#exebtn2 {
+    right: 200px;
+}
+
+#exebtn1 {
+    left: 200px;
+}
+
+.exebtn {
+    position: absolute;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: rgb(66, 3, 3);
+    border: none;
+    color: rgba(255, 255, 255, 0.842);
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 250px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+.exebtn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.exebtn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.exebtn:hover span {
+    padding-right: 25px;
+}
+
+.exebtn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+>>>>>>> 25253dd60912aac7595c5012dd75b291c673db64

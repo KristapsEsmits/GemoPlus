@@ -17,13 +17,19 @@ require('backend/db_con.php');
         <link rel="stylesheet" href="resources/css/nothing.css"/>
     </head>
 <body>
-    <div>
-        <img class="img" src="resources/img/s.png" alt="zzz">
-        <h1>Nothing to see here!</h1>
-        <a href="https://drive.google.com/uc?export=download&id=1tccWMVvatjucFSWpTJNhMvHCIap6cvYP" target="_blank" rel="noopener noreferrer">
-            <button>Download desktop app!</button>
-        </a>
-
+    <h1 class="virsraksts">Izmēģiniet mūsu lietotnes</h1>
+    <h1 class="subvirsraksts">Iegūsti jaunākos atjauninajumus un labāku pieredzi izmantojot kādu no mūsu aplikācijām!</h1>
+    <div class="pc">
+        <h2>Download for PC:</h2>
     </div>
+    <a href="https://drive.google.com/uc?export=download&id=1tccWMVvatjucFSWpTJNhMvHCIap6cvYP" target="_blank" rel="noopener noreferrer">
+        <button class="exebtn" id="exebtn1"><span>Download</span></button>
+    </a>
+    <div class="phone">
+        <h2>Download Android:</h2>
+    </div>
+    <a href="https://drive.google.com/uc?export=download&id=1tccWMVvatjucFSWpTJNhMvHCIap6cvYP" target="_blank" rel="noopener noreferrer">
+        <button class="exebtn" id="exebtn2"><span>Download</span></button>
+    </a>
 </body>
 </html>
