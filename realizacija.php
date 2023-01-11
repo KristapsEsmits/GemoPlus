@@ -137,7 +137,7 @@ if (isset($_REQUEST['preces_nosaukums'])){
                     <td><?php echo $row['Precu_atlikums']; ?></td>
                     <td><?php echo $row['Nosaukums']; ?></td>
                     <td><?php echo $row['Lietotaja_ID']; ?></td>
-                    <td><a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="editdata.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button id='labot'>Labot</button></a></td>
+                    <td><a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Preces_ID"]; ?>"><button id='labot'>Labot</button></a></td>
                 </tr>
                 <?php
                     }

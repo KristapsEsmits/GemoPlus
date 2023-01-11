@@ -96,16 +96,25 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
                         $result = mysqli_query($con,$query);
                         while($row = mysqli_fetch_array($result)) {
                     ?>
-                    <tr class="table">
-                        <td><?php echo $row["Lietotaja_ID"]; ?></td>
-                        <td name='lala' class='edits' contenteditable="false"><?php echo $row['Lietotajvards']; ?></td>
-                        <td class='edits' contenteditable="false"><?php echo $row['Parole']; ?></td>
-                        <td class='edits' contenteditable="false"><?php echo $row['Vards']; ?></td>
-                        <td class='edits' contenteditable="false"><?php echo $row['Uzvards']; ?></td>
-                        <td class='edits' contenteditable="false"><?php echo $row['Talr_Nr']; ?></td>
-                        <td class='edits' contenteditable="false"><?php echo $row['Admin']; ?></td>
-                        <td><a href="backend/delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>"><button id='dzest'>Dzēst</button></a><br><button id='labot'>Labot</button><a><form action='editdata.php' method="post"><input type='Submit' style='display:none' value='Apstiprināt' name='aed' id='acceptbtn'></input></form></a></td>
-                    </tr>
+                      <tr class="table" id='datatable'>
+                          <td><?php echo $row["Lietotaja_ID"]; ?></td>
+                          <input name='display-user_id' class='edits' hidden><?php echo $row['Lietotaja_ID']; ?></input>
+                          <td name='display-username'><?php echo $row['Lietotajvards']; ?></td>
+                          <td name='display-password'><?php echo $row['Parole']; ?></td>
+                          <td name='display-firstname'><?php echo $row['Vards']; ?></td>
+                          <td name='display-lastname'><?php echo $row['Uzvards']; ?></td>
+                          <td name='display-phone'><?php echo $row['Talr_Nr']; ?></td>
+                          <td name='display-admin_level'><?php echo $row['Admin']; ?></td>
+                          <td>
+                            <a href="backend/delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>">
+                              <button class='dzest'>Dzēst</button>
+                            </a>
+                            <br>
+                            <a href="edit/edit-user.php?user_id=<?php echo $row['Lietotaja_ID']; ?>">
+                              <button name='user-id' class='labot'>Labot</button>
+                            <!-- <button type='submit' style='display:none' value='Apstiprināt' name='aed' id='acceptbtn'></button> -->
+                          </td>
+                      </tr>
                     <?php
                     }
                   ?>

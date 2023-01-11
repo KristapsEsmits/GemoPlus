@@ -1,16 +1,17 @@
-body{
-    margin: 0;
-    background-color: #e0e0e050;
-    font-family: 'Poppins', sans-serif;
+body {
+	margin: 0;
+	background-color: #e0e0e050;
+	font-family: "Poppins", sans-serif;
+	background-image: url("/resources/img/main.png");
 }
 
 .img {
-    margin-top: 200px;
-    margin-left: 450px;
-    width: 40%;
-    height: 250px;
+	margin-top: 200px;
+	margin-left: 450px;
+	width: 40%;
+	height: 250px;
 }
 
 h1 {
-    text-align: center;
+	text-align: center;
 }
