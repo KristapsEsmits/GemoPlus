@@ -1,41 +1,6 @@
 <?php
 include 'backend/Auth.php';
 require('backend/db_con.php');
-
-if (isset($_REQUEST['preces_nosaukums'])){
-    $preces_nosaukums = stripslashes($_REQUEST['preces_nosaukums']);
-	$preces_nosaukums = mysqli_real_escape_string($con,$preces_nosaukums );
-
-    $datums = stripslashes($_REQUEST['datums']);
-	$datums  = mysqli_real_escape_string($con,$datums );
-
-    $termins = stripslashes($_REQUEST['termins']);
-	$termins  = mysqli_real_escape_string($con,$termins );
-
-    $cena_bez_PVN = stripslashes($_REQUEST['cena_bez_PVN']);
-	$cena_bez_PVN  = mysqli_real_escape_string($con,$cena_bez_PVN );
-
-    $PVN_izvele = stripslashes($_REQUEST['pvn_izvele']);
-    $PVN_izvele = mysqli_real_escape_string($con,$PVN_izvele );
-
-    $skaits = stripslashes($_REQUEST['skaits']);
-	$skaits = mysqli_real_escape_string($con,$skaits );
-
-    $daudzums = stripslashes($_REQUEST['daudzums']);
-	$daudzums  = mysqli_real_escape_string($con,$daudzums );
-
-    $preces_kategorija = ($_REQUEST['preces_kategorija']);
-
-    $lietotaja_ID = ($_REQUEST['lietotaja_ID']);
-
-    $query = "INSERT INTO preces (Preces_nosaukums, Datums, Termins, Cena_Bez_PVN, PVN, Skaits, Pārdotais_daudzums, Preces_kategorija, Lietotaja_ID)
-    VALUES ('$preces_nosaukums','$datums','$termins','$cena_bez_PVN','$PVN_izvele','$skaits','$daudzums','$preces_kategorija','$lietotaja_ID')";
-    $result = mysqli_query($con,$query);
-
-    if($result){
-        echo("<h1 id='veiksmigi'>Veiksmīgi pievienots!</h1>");
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -53,23 +18,24 @@ if (isset($_REQUEST['preces_nosaukums'])){
     </head>
 <body>
     <div class="Fields">
-        <button id="add-btn">Pievienot Preci</button>
-        <form action="" method="post">
+        <button id="add-btn">Meklēt preci</button>
+        <form action="">
             <div id="add-pop">
-                <input name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" required>
-                <label class="ievesana">Ievešanas datums:</label>
-                <input name="datums" type="date" class="input" placeholder="Ievešanas datums" value="Ievešanas datums" required>
-                <label class="termins">Termiņš:</label>
-                <input name="termins" type="date" class="input" placeholder="Termiņš">
-                <input name="cena_bez_PVN" type="text" class="input" placeholder="Cena bez PVN" required>
-                <select class="sinput" name="pvn_izvele">
+                <input name="preces_ID" type="text" class="input" placeholder="ID" required>
+                <input name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" hidden required>
+                <label class="ievesana" hidden>Ievešanas datums:</label>
+                <input name="datums" type="date" class="input" placeholder="Ievešanas datums" value="Ievešanas datums" hidden required>
+                <label class="termins" hidden>Termiņš:</label>
+                <input name="termins" type="date" class="input" placeholder="Termiņš" hidden>
+                <input name="cena_bez_PVN" type="text" class="input" placeholder="Cena bez PVN" hidden required>
+                <select class="sinput" name="pvn_izvele" hidden>
                     <option value="21">21%</option>
                     <option value="12">12%</option>
                     <option value="5">5%</option>
                 </select>
-                <input name="skaits" type="text" class="input" placeholder="Skaits" required>
-                <input name="daudzums" type="text" class="input" placeholder="Pārdotais daudzums" required>
-                <select class="sinput" name="preces_kategorija">
+                <input name="skaits" type="text" class="input" placeholder="Skaits" hidden required>
+                <input name="daudzums" type="text" class="input" placeholder="Pārdotais daudzums" hidden required>
+                <select class="sinput" name="preces_kategorija" hidden>
                     <?php
                         $query = "SELECT * FROM kategorijas";
                         $result = mysqli_query($con,$query);
@@ -80,7 +46,7 @@ if (isset($_REQUEST['preces_nosaukums'])){
                         }
                     ?>
                 </select>
-                <select class="sinput" name="lietotaja_ID">
+                <select class="sinput" name="lietotaja_ID" hidden>
                     <?php
                         $query = "SELECT Lietotaja_ID, Lietotajvards FROM lietotaji";
                         $result = mysqli_query($con,$query);
@@ -91,7 +57,17 @@ if (isset($_REQUEST['preces_nosaukums'])){
                         }
                     ?>
                 </select>
-                <input class="btn" name=submit type="submit" value="Pievienot">
+                <select class="sinput" id="search_param">
+                    <option value="Preces_ID" id="Preces_ID">Preces ID</option>
+                    <option value="Nosaukums" id="Nosaukums">Preces nosaukums</option>
+                    <option value="Datums" id="Datums">Ievešanas datums</option>
+                    <option value="Termins" id="Termins">Derīguma termiņš</option>
+                    <option value="Cena_Bez_PVN" id="Cena_Bez_PVN">Cena bez PVN</option>
+                    <option value="PVN" id="PVN">PVN likme</option>
+                    <option value="Skaits" id="Skaits">Daudzums</option>
+                    <option value="Pārdotais_daudzums" id="Pārdotais_daudzums">Pārdotais daudzums</option>
+                </select>
+                <button class="btn" id="search-btn">Meklēt</button>
                 <button id="close-btn">Atcelt</button>
             </div>
         </form>

@@ -113,6 +113,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
                             <a href="edit/edit-user.php?user_id=<?php echo $row['Lietotaja_ID']; ?>">
                               <button name='user-id' class='labot'>Labot</button>
                             <!-- <button type='submit' style='display:none' value='Apstiprināt' name='aed' id='acceptbtn'></button> -->
+                            </a>
                           </td>
                       </tr>
                     <?php
