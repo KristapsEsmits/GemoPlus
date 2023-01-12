@@ -17,6 +17,7 @@ if (isset($_POST['username'])){
         if($row["Lietotajvards"] == $username and password_verify($password, $row["Parole"])){
             $_SESSION['username'] = $username;
             $_SESSION['userlevel'] = $row["Admin"];
+            $_SESSION['userid'] = $row["Lietotaja_ID"];
             header("Location: index.php");
          }else{
             echo "<div class='NepareizaParole'>Parole vai lietotājvārds ir nepareizs!</div>";

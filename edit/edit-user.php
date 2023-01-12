@@ -25,7 +25,7 @@ if (isset($_POST['update_user'])){
             WHERE Lietotaja_ID = $user_id";
   $result = mysqli_query($con, $query);
   if ($result) {
-    header('Location: darbinieki.php');
+    header('Location: ../darbinieki.php');
   }
 
   
