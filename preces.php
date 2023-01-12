@@ -26,10 +26,12 @@ if (isset($_REQUEST['preces_nosaukums'])){
 
     $preces_kategorija = ($_REQUEST['preces_kategorija']);
 
-    $lietotaja_ID = ($_REQUEST['lietotaja_ID']);
+    $plaukta_id = ($_REQUEST['plaukta_id']);
 
-    $query = "INSERT INTO preces (Preces_nosaukums, Datums, Termins, Cena_Bez_PVN, PVN, Skaits, Pārdotais_daudzums, Preces_kategorija, Lietotaja_ID)
-    VALUES ('$preces_nosaukums','$datums','$termins','$cena_bez_PVN','$PVN_izvele','$skaits','$daudzums','$preces_kategorija','$lietotaja_ID')";
+    $lietotaja_ID = ($_SESSION['userid']);
+
+    $query = "INSERT INTO preces (Preces_nosaukums, Datums, Termins, Cena_Bez_PVN, PVN, Skaits, Pārdotais_daudzums, Preces_kategorija, Plaukta_ID, Lietotaja_ID)
+    VALUES ('$preces_nosaukums','$datums','$termins','$cena_bez_PVN','$PVN_izvele','$skaits','$daudzums','$preces_kategorija','$plaukta_id','$lietotaja_ID')";
     $result = mysqli_query($con,$query);
 
     if($result){
@@ -80,13 +82,15 @@ if (isset($_REQUEST['preces_nosaukums'])){
                         }
                     ?>
                 </select>
-                <select class="sinput" name="lietotaja_ID">
+                <select class="sinput" name="plaukta_id">
                     <?php
-                        $query = "SELECT Lietotaja_ID, Lietotajvards FROM lietotaji";
+                        $query = "SELECT * FROM noliktava
+                                  LEFT JOIN kategorijas
+                                         ON kategorijas.Kategorijas_ID = noliktava.Kategorijas_ID";
                         $result = mysqli_query($con,$query);
                         while($row = mysqli_fetch_array($result)) {
                         ?>
-                        <option name="preces_NR" value=<?php echo $row["Lietotaja_ID"]; ?>><?php echo $row["Lietotajvards"]; ?></option>
+                        <option name="plaukta_nr" value="<?php echo $row["Plaukta_ID"]; ?>"><?php echo "Plaukts ar ID " . $row["Plaukta_ID"] . ", sektors " . $row["Sektors"] . ", stāvs " . $row["Stavs"] . ", kategorija " . $row["Nosaukums"]; ?></option>
                         <?php
                         }
                     ?>

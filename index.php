@@ -20,11 +20,11 @@ require("backend/db_con.php");
         <header class="menu">
             <a onClick="Funkcija0()"><img class="logo" src="resources/img/logo.png" alt="logo"></a>
             <div class="btn-panel">
-                <a onClick="Funkcija1()"><button class="menu-btn">Preces</button>
-                <a onClick="Funkcija4()"><button class="menu-btn">Noliktava</button>
-                <button class="menu-btn">-</button>
-                <button class="menu-btn">Inventarizācija</button>
-                <button class="menu-btn">-</button>
+                <a onClick="Funkcija1()"><button class="menu-btn">Preces</button></a>
+                <a onClick="Funkcija4()"><button class="menu-btn">Noliktava</button></a>
+                <a onClick="Funkcija5()"><button class="menu-btn">Realizācija</button></a>
+                <a onClick="Funkcija6()"><button class="menu-btn">Inventarizācija</button></a>
+                <a onClick="Funkcija7()"><button class="menu-btn">Eksportēt</button></a>
                 <?php
                     if ($_SESSION["userlevel"] == 1) {
                         echo "<a onClick=\"Funkcija2()\"><button class=\"menu-btn\">Darbinieki</button></a>";

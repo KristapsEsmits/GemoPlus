@@ -9,7 +9,7 @@ require('backend/db_con.php');
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Preces</title>
+        <title>Inventarizācija</title>
         <link rel="icon" href="resources/favicons/fav.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,24 +18,23 @@ require('backend/db_con.php');
     </head>
 <body>
     <div class="Fields">
-        <button id="add-btn">Meklēt preci</button>
-        <form action="filter_realizacija.php">
+        <button id="add-btn">Pievienot Preci</button>
+        <form action="" method="post">
             <div id="add-pop">
-                <input name="preces_ID" type="text" class="input" placeholder="ID">
-                <input name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" hidden>
-                <label class="ievesana" hidden>Ievešanas datums:</label>
-                <input name="datums" type="date" class="input" placeholder="Ievešanas datums" value="Ievešanas datums" hidden>
-                <label class="termins" hidden>Termiņš:</label>
-                <input name="termins" type="date" class="input" placeholder="Termiņš" hidden>
-                <input name="cena_bez_PVN" type="text" class="input" placeholder="Cena bez PVN" hidden>
-                <select class="sinput" name="pvn_izvele" hidden>
+                <input name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" required>
+                <label class="ievesana">Ievešanas datums:</label>
+                <input name="datums" type="date" class="input" placeholder="Ievešanas datums" value="Ievešanas datums" required>
+                <label class="termins">Termiņš:</label>
+                <input name="termins" type="date" class="input" placeholder="Termiņš">
+                <input name="cena_bez_PVN" type="text" class="input" placeholder="Cena bez PVN" required>
+                <select class="sinput" name="pvn_izvele">
                     <option value="21">21%</option>
                     <option value="12">12%</option>
                     <option value="5">5%</option>
                 </select>
-                <input name="skaits" type="text" class="input" placeholder="Skaits" hidden>
-                <input name="daudzums" type="text" class="input" placeholder="Pārdotais daudzums" hidden>
-                <select class="sinput" name="preces_kategorija" hidden>
+                <input name="skaits" type="text" class="input" placeholder="Skaits" required>
+                <input name="daudzums" type="text" class="input" placeholder="Pārdotais daudzums" required>
+                <select class="sinput" name="preces_kategorija">
                     <?php
                         $query = "SELECT * FROM kategorijas";
                         $result = mysqli_query($con,$query);
@@ -46,30 +45,20 @@ require('backend/db_con.php');
                         }
                     ?>
                 </select>
-                <select class="sinput" name="lietotaja_ID" hidden>
+                <select class="sinput" name="plaukta_id">
                     <?php
-                        $query = "SELECT Lietotaja_ID, Lietotajvards FROM lietotaji";
+                        $query = "SELECT * FROM noliktava
+                                  LEFT JOIN kategorijas
+                                         ON kategorijas.Kategorijas_ID = noliktava.Kategorijas_ID";
                         $result = mysqli_query($con,$query);
                         while($row = mysqli_fetch_array($result)) {
                         ?>
-                        <option name="preces_NR" value=<?php echo $row["Lietotaja_ID"]; ?>><?php echo $row["Lietotajvards"]; ?></option>
+                        <option name="plaukta_nr" value="<?php echo $row["Plaukta_ID"]; ?>"><?php echo "Plaukts ar ID " . $row["Plaukta_ID"] . ", sektors " . $row["Sektors"] . ", stāvs " . $row["Stavs"] . ", kategorija " . $row["Nosaukums"]; ?></option>
                         <?php
                         }
                     ?>
                 </select>
-                <select class="sinput" id="search_param" name="search_param">
-                    <option value="Preces_ID" id="Preces_ID">Preces ID</option>
-                    <option value="Nosaukums" id="Nosaukums">Preces nosaukums</option>
-                    <option value="Datums" id="Datums">Ievešanas datums</option>
-                    <option value="Termins" id="Termins">Derīguma termiņš</option>
-                    <option value="Cena_Bez_PVN" id="Cena_Bez_PVN">Cena bez PVN</option>
-                    <option value="PVN" id="PVN">PVN likme</option>
-                    <option value="Skaits" id="Skaits">Daudzums</option>
-                    <option value="Kategorijas_ID" id="Kategorijas_ID">Kategorija</option>
-                    <option value="Pārdotais_daudzums" id="Pārdotais_daudzums">Pārdotais daudzums</option>
-                    <option value="Lietotaja_ID" id="Lietotaja_ID">Lietotājs</option>
-                </select>
-                <button class="btn" id="search-btn">Meklēt</button>
+                <input class="btn" name=submit type="submit" value="Pievienot">
                 <button id="close-btn">Atcelt</button>
             </div>
         </form>
@@ -115,7 +104,10 @@ require('backend/db_con.php');
                     <td><?php echo $row['Precu_atlikums']; ?></td>
                     <td><?php echo $row['Nosaukums']; ?></td>
                     <td><?php echo $row['Lietotaja_ID']; ?></td>
-                    <td><a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button class='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Preces_ID"]; ?>"><button class='labot'>Labot</button></a></td>
+                    <td>
+                        <a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button class='dzest'>Dzēst</button></a>
+                        <br>
+                        <a href="edit/edit-preces.php?preces_id=<?php echo $row["Preces_ID"]; ?>"><button class='labot'>Labot</button></a></td>
                 </tr>
                 <?php
                     }
@@ -124,6 +116,5 @@ require('backend/db_con.php');
         </div>
     </div>
     <script src="resources/js/table.js"></script>
-    <script src="resources/js/realizacija.js"></script>
 </body>
 </html>
