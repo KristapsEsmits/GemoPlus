@@ -1,4 +1,4 @@
-const select = document.getElementById("search_param");
+const select = document.getElementById("filter_param");
 const inputElements = document.querySelectorAll("form input[type='text'],form input[type='date'],form select");
 
 select.addEventListener("change", function() {
@@ -71,23 +71,53 @@ select.addEventListener("change", function() {
 });
 
 
-var addBtn = document.getElementById("add-btn");
-addBtn.addEventListener("click", function() {
-    var data = {};
-    var inputElements = document.querySelectorAll("form input[type='text'],form input[type='date'],form select");
-    inputElements.forEach(function(inputElement) {
-        if (!inputElement.hidden) {
-            data[inputElement.name] = inputElement.value;
-        }
-    });
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "filter/filter_realizacija.php", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText);
-        }
-    };
-    xhr.send(JSON.stringify(data));
+// Get the select field
+var selectField = document.querySelector("select[name='filter_param']");
+
+// Add an event listener that listens for changes to the selected option
+selectField.addEventListener("change", function() {
+  // Get the selected parameter
+  var selectedParam = this.value;
+  
+  // Get the value of the corresponding form element
+  var selectedParamValue = document.querySelector("#" + selectedParam).value;
+  
+  // Assign the value to the hidden input field
+  document.querySelector("#selected_param_value").value = selectedParamValue;
 });
 
+
+// Get the form element
+var form = document.querySelector("form");
+
+// Add an event listener that listens for the submit event
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Get the selected parameter
+    var selectedParam = document.querySelector("select[name='filter_param']").value;
+    // Get the value of the corresponding form element
+    var selectedParamValue = document.querySelector("#" + selectedParam).value;
+
+    // Create a new XHR object
+    var xhr = new XMLHttpRequest();
+
+    // Open a connection to the server-side script
+    xhr.open("POST", "filter/filter_realizacija.php", true);
+
+    // Set the request headers
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    // Send the request
+    xhr.send("selected_param=" + selectedParam + "&selected_param_value=" + selectedParamValue);
+
+    // Handle the response
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Get the response from the server
+            var response = xhr.responseText;
+            // Perform some action with the response
+            // ...
+        }
+    }
+});

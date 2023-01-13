@@ -19,7 +19,7 @@ require('backend/db_con.php');
 <body>
     <div class="Fields">
         <button id="add-btn">Meklēt preci</button>
-        <form action="filter_realizacija.php">
+        <form action="filter/filter_realizacija.php" method="post">
             <div id="add-pop">
                 <input name="preces_ID" type="text" class="input" placeholder="ID">
                 <input name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" hidden>
@@ -57,7 +57,7 @@ require('backend/db_con.php');
                         }
                     ?>
                 </select>
-                <select class="sinput" id="search_param" name="search_param">
+                <select class="sinput" id="filter_param" name="filter_param">
                     <option value="Preces_ID" id="Preces_ID">Preces ID</option>
                     <option value="Nosaukums" id="Nosaukums">Preces nosaukums</option>
                     <option value="Datums" id="Datums">Ievešanas datums</option>
@@ -69,7 +69,8 @@ require('backend/db_con.php');
                     <option value="Pārdotais_daudzums" id="Pārdotais_daudzums">Pārdotais daudzums</option>
                     <option value="Lietotaja_ID" id="Lietotaja_ID">Lietotājs</option>
                 </select>
-                <button class="btn" id="search-btn">Meklēt</button>
+                <input type="hidden" name="selected_param_value" id="selected_param_value">
+                <button class="btn" id="search-btn" type="submit">Meklēt</button>
                 <button id="close-btn">Atcelt</button>
             </div>
         </form>
