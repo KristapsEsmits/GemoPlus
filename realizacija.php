@@ -21,8 +21,18 @@ require('backend/db_con.php');
         <button id="add-btn">Meklēt preci</button>
         <form action="" method="post">
             <div id="add-pop">
+                <select class="sinput" id="condition_param" name="filter_param">
+                    <option value="starts">Sākas ar</option>
+                    <option value="ends">Beidzas ar</option>
+                    <option value="includes">Satur</option>
+                    <option value="smaller">Mazāks par</option>
+                    <option value="smallerequal">Mazāks vai vienāds ar</option>
+                    <option value="equal">Vienāds ar</option>
+                    <option value="biggerequal">Lielāks vai vienāds ar</option>
+                    <option value="bigger">Lielāks</option>
+                </select>
                 <input id="Preces_ID" name="preces_ID" type="text" class="input" placeholder="ID">
-                <input id="Nosaukums" name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" hidden>
+                <input id="Preces_nosaukums" name="Preces_nosaukums" type="text" class="input" placeholder="Nosaukums" hidden>
                 <label class="ievesana" hidden>Ievešanas datums:</label>
                 <input id="Datums" name="datums" type="date" class="input" placeholder="Ievešanas datums" hidden>
                 <label class="termins" hidden>Termiņš:</label>
@@ -59,13 +69,13 @@ require('backend/db_con.php');
                 </select>
                 <select class="sinput" id="filter_param" name="filter_param">
                     <option value="Preces_ID">Preces_ID</option>
-                    <option value="Nosaukums">Nosaukums</option>
+                    <option value="Preces_nosaukums">Preces_nosaukums</option>
                     <option value="Datums">Datums</option>
                     <option value="Termins">Termins</option>
                     <option value="Cena_Bez_PVN">Cena_Bez_PVN</option>
                     <option value="PVN">PVN</option>
                     <option value="Skaits">Skaits</option>
-                    <option value="Kategorijas_ID">Kategorijas_ID</option>
+                    <option value="Preces_kategorija">Kategorijas_ID</option>
                     <option value="Pārdotais_daudzums">Pārdotais_daudzums</option>
                     <option value="Lietotaja_ID">Lietotaja_ID</option>
                 </select>
@@ -116,7 +126,10 @@ require('backend/db_con.php');
                     <td><?php echo $row['Precu_atlikums']; ?></td>
                     <td><?php echo $row['Nosaukums']; ?></td>
                     <td><?php echo $row['Lietotaja_ID']; ?></td>
-                    <td><a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button class='dzest'>Dzēst</button></a><br><a href="backend/delete.php?userid=<?php echo $row["Preces_ID"]; ?>"><button class='labot'>Labot</button></a></td>
+                    <td>
+                        <a href="<?php echo $row["Preces_ID"]; ?>"><button class='dzest'>Dzēst</button></a>
+                        <br>
+                        <a href="../edit/edit-preces.php?preces_id=<?php echo $row["Preces_ID"]; ?>"><button class='labot'>Labot</button></a></td>
                 </tr>
                 <?php
                     }

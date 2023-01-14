@@ -1,5 +1,7 @@
 const select = document.getElementById("filter_param");
 const inputElements = document.querySelectorAll("form input[type='text'],form input[type='date'],form select");
+const selectCond = document.getElementById("condition_param");
+var selectCondOption = select.options
 
 select.addEventListener("change", function() {
     const selectedValue = this.options[this.selectedIndex].value;
@@ -11,7 +13,8 @@ select.addEventListener("change", function() {
             } else {
                 inputElement.hidden = false;
             }
-        } else if (selectedValue === "Nosaukums") {
+
+        } else if (selectedValue === "Preces_nosaukums") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
@@ -71,7 +74,7 @@ select.addEventListener("change", function() {
 
 
 // Get the select field
-var selectField = document.querySelector("select[name='filter_param']");
+var selectField = document.querySelector("select[id='filter_param']");
 
 // Add an event listener that listens for changes to the selected option
 selectField.addEventListener("change", function() {
@@ -98,7 +101,6 @@ form.addEventListener("submit", function(event) {
     var selectedParam = document.querySelector("select[name='filter_param']").value;
     // Get the value of the corresponding form element
     var selectedParamValue = document.querySelector("#" + selectedParam).value;
-    console.log(selectedParam);
 
     // Create a new XHR object
     var xhr = new XMLHttpRequest();
@@ -119,6 +121,22 @@ form.addEventListener("submit", function(event) {
             var response = xhr.responseText;
             // Perform some action with the response
             // ...
+            document.getElementById("trow").innerHTML = `
+                <thead>
+                    <th>ID</th>
+                    <th>Nosaukums</th>
+                    <th>Ievešanas datums</th>
+                    <th>Termiņš</th>
+                    <th>Cena Bez PVN</th>
+                    <th>Cena PVN</th>
+                    <th>Skaits</th>
+                    <th>Pārdotais daudzums</th>
+                    <th>Atlikums</th>
+                    <th>Preces kategorija</th>
+                    <th>Lietotāja ID</th>
+                    <th>Rediģēt</th>
+                </thead>
+                ${response}`;
         }
     }
 });
