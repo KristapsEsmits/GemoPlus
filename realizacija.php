@@ -19,22 +19,22 @@ require('backend/db_con.php');
 <body>
     <div class="Fields">
         <button id="add-btn">Meklēt preci</button>
-        <form action="filter/filter_realizacija.php" method="post">
+        <form action="" method="post">
             <div id="add-pop">
-                <input name="preces_ID" type="text" class="input" placeholder="ID">
-                <input name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" hidden>
+                <input id="Preces_ID" name="preces_ID" type="text" class="input" placeholder="ID">
+                <input id="Nosaukums" name="preces_nosaukums" type="text" class="input" placeholder="Nosaukums" hidden>
                 <label class="ievesana" hidden>Ievešanas datums:</label>
-                <input name="datums" type="date" class="input" placeholder="Ievešanas datums" value="Ievešanas datums" hidden>
+                <input id="Datums" name="datums" type="date" class="input" placeholder="Ievešanas datums" hidden>
                 <label class="termins" hidden>Termiņš:</label>
-                <input name="termins" type="date" class="input" placeholder="Termiņš" hidden>
-                <input name="cena_bez_PVN" type="text" class="input" placeholder="Cena bez PVN" hidden>
-                <select class="sinput" name="pvn_izvele" hidden>
+                <input id="Termins" name="termins" type="date" class="input" placeholder="Termiņš" hidden>
+                <input id="Cena_Bez_PVN" name="cena_bez_PVN" type="text" class="input" placeholder="Cena bez PVN" hidden>
+                <select id="PVN" class="sinput" name="pvn_izvele" hidden>
                     <option value="21">21%</option>
                     <option value="12">12%</option>
                     <option value="5">5%</option>
                 </select>
-                <input name="skaits" type="text" class="input" placeholder="Skaits" hidden>
-                <input name="daudzums" type="text" class="input" placeholder="Pārdotais daudzums" hidden>
+                <input id="Skaits" name="skaits" type="text" class="input" placeholder="Skaits" hidden>
+                <input id="Pārdotais_daudzums" name="daudzums" type="text" class="input" placeholder="Pārdotais daudzums" hidden>
                 <select class="sinput" name="preces_kategorija" hidden>
                     <?php
                         $query = "SELECT * FROM kategorijas";
@@ -46,7 +46,7 @@ require('backend/db_con.php');
                         }
                     ?>
                 </select>
-                <select class="sinput" name="lietotaja_ID" hidden>
+                <select id="Lietotaja_ID" class="sinput" name="lietotaja_ID" hidden>
                     <?php
                         $query = "SELECT Lietotaja_ID, Lietotajvards FROM lietotaji";
                         $result = mysqli_query($con,$query);
@@ -58,19 +58,19 @@ require('backend/db_con.php');
                     ?>
                 </select>
                 <select class="sinput" id="filter_param" name="filter_param">
-                    <option value="Preces_ID" id="Preces_ID">Preces ID</option>
-                    <option value="Nosaukums" id="Nosaukums">Preces nosaukums</option>
-                    <option value="Datums" id="Datums">Ievešanas datums</option>
-                    <option value="Termins" id="Termins">Derīguma termiņš</option>
-                    <option value="Cena_Bez_PVN" id="Cena_Bez_PVN">Cena bez PVN</option>
-                    <option value="PVN" id="PVN">PVN likme</option>
-                    <option value="Skaits" id="Skaits">Daudzums</option>
-                    <option value="Kategorijas_ID" id="Kategorijas_ID">Kategorija</option>
-                    <option value="Pārdotais_daudzums" id="Pārdotais_daudzums">Pārdotais daudzums</option>
-                    <option value="Lietotaja_ID" id="Lietotaja_ID">Lietotājs</option>
+                    <option value="Preces_ID">Preces_ID</option>
+                    <option value="Nosaukums">Nosaukums</option>
+                    <option value="Datums">Datums</option>
+                    <option value="Termins">Termins</option>
+                    <option value="Cena_Bez_PVN">Cena_Bez_PVN</option>
+                    <option value="PVN">PVN</option>
+                    <option value="Skaits">Skaits</option>
+                    <option value="Kategorijas_ID">Kategorijas_ID</option>
+                    <option value="Pārdotais_daudzums">Pārdotais_daudzums</option>
+                    <option value="Lietotaja_ID">Lietotaja_ID</option>
                 </select>
                 <input type="hidden" name="selected_param_value" id="selected_param_value">
-                <button class="btn" id="search-btn" type="submit">Meklēt</button>
+                <input class="btn" id="search-btn" type="submit" value="Meklēt"></input>
                 <button id="close-btn">Atcelt</button>
             </div>
         </form>

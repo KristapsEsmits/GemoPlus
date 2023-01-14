@@ -6,62 +6,61 @@ select.addEventListener("change", function() {
 
     inputElements.forEach(function(inputElement) {
         if (selectedValue === "Preces_ID") {
-            if (inputElement.name !== "preces_ID" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
-                console.log(inputElement.name);
                 inputElement.hidden = false;
             }
         } else if (selectedValue === "Nosaukums") {
-            if (inputElement.name !== "preces_nosaukums" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
         }else if (selectedValue === "Datums") {
-            if (inputElement.name !== "datums" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
         } else if (selectedValue === "Termins") {
-            if (inputElement.name !== "termins" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
         } else if (selectedValue === "Cena_Bez_PVN") {
-            if (inputElement.name !== "cena_bez_PVN" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
         } else if (selectedValue === "PVN") {
-            if (inputElement.name !== "pvn_izvele" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
         } else if (selectedValue === "Skaits") {
-            if (inputElement.name !== "skaits" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
         } else if (selectedValue === "Pārdotais_daudzums") {
-            if (inputElement.name !== "daudzums" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
         } else if (selectedValue === "Kategorijas_ID") {
-            if (inputElement.name !== "preces_kategorija" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
         } else if (selectedValue === "Lietotaja_ID") {
-            if (inputElement.name !== "lietotaja_ID" && inputElement.name !== "search_param") {
+            if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
@@ -82,6 +81,7 @@ selectField.addEventListener("change", function() {
   // Get the value of the corresponding form element
   var selectedParamValue = document.querySelector("#" + selectedParam).value;
   
+  
   // Assign the value to the hidden input field
   document.querySelector("#selected_param_value").value = selectedParamValue;
 });
@@ -98,6 +98,7 @@ form.addEventListener("submit", function(event) {
     var selectedParam = document.querySelector("select[name='filter_param']").value;
     // Get the value of the corresponding form element
     var selectedParamValue = document.querySelector("#" + selectedParam).value;
+    console.log(selectedParam);
 
     // Create a new XHR object
     var xhr = new XMLHttpRequest();
