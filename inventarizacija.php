@@ -23,28 +23,27 @@ require('backend/db_con.php');
         <div class="tabulaBox">
             <table class="table-sortable" id="trow">
                 <thead>
-                    <th>ID</th>
                     <th>Nosaukums</th>
                     <th>Ievešanas datums</th>
                     <th>Termiņš</th>
-                    <th>Cena Bez PVN</th>
-                    <th>Cena PVN</th>
-                    <th>Skaits</th>
-                    <th>Pārdotais daudzums</th>
-                    <th>Atlikums</th>
-                    <th>Preces kategorija</th>
-                    <th>Lietotāja ID</th>
+                    <th>Dienas<th>
+                    <th>Kategorijas nosaukums</th>
+                    <th>Plaukta ID</th>
+                    <th>Sektors<th>
+                    <th>Stavs<th>
+                    <th>Kategorijas ID<th>
                     <th>Rediģēt</th>
                 </thead>
                 <?php
-                    $query = "SELECT preces.*, kategorijas.Nosaukums, round((Cena_Bez_PVN + (Cena_Bez_PVN * (PVN*0.01))),2) AS Cena_PVN, (Skaits - Pārdotais_daudzums) AS Precu_atlikums FROM preces
-                              LEFT JOIN kategorijas ON preces.Preces_kategorija = kategorijas.Kategorijas_ID";
+                    $query = "SELECT preces.Preces_nosaukums, preces.Datums, preces.Termins, TIMESTAMPDIFF(DAY, preces.Datums, preces.Termins) AS Days_left, kategorijas.Nosaukums, preces.Plaukta_ID, noliktava.Sektors, noliktava.Stavs, noliktava.Kategorijas_ID
+                    FROM preces
+                    LEFT JOIN kategorijas ON preces.Preces_kategorija = kategorijas.Kategorijas_ID
+                    LEFT JOIN noliktava ON preces.Plaukta_ID = noliktava.Plaukta_ID;";
                     $result = mysqli_query($con,$query);
                     while($row = mysqli_fetch_array($result)) {
                 ?>
                 <tr class="table">
-                    <td><?php echo $row["Preces_ID"]; ?></td>
-                    <td><?php echo $row['Preces_nosaukums']; ?></td>
+                    <td><?php echo $row["Preces_nosaukums"]; ?></td>
                     <td><?php echo $row['Datums']; ?></td>
                     <td><?php 
                     if ($row['Termins'] == "0000-00-00") {
@@ -53,13 +52,12 @@ require('backend/db_con.php');
                         echo $row['Termins'];
                     }
                     ?></td>
-                    <td><?php echo $row['Cena_Bez_PVN']; ?></td>
-                    <td><?php echo $row['Cena_PVN']; ?></td>
-                    <td><?php echo $row['Skaits']; ?></td>
-                    <td><?php echo $row['Pārdotais_daudzums']; ?></td>
-                    <td><?php echo $row['Precu_atlikums']; ?></td>
+                    <td><?php echo $row['Days_left'];  ?></td>
                     <td><?php echo $row['Nosaukums']; ?></td>
-                    <td><?php echo $row['Lietotaja_ID']; ?></td>
+                    <td><?php echo $row['Plaukta_ID']; ?></td>
+                    <td><?php echo $row['Sektors']; ?></td>
+                    <td><?php echo $row['Stavs']; ?></td>
+                    <td><?php echo $row['Kategorijas_ID']; ?></td>
                     <td>
                         <a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button class='dzest'>Dzēst</button></a>
                         <br>
