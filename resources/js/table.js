@@ -27,7 +27,7 @@ function sortTableByColumn(table, column, asc = true) {
 }
 
 document.querySelectorAll(".table-sortable th").forEach(headerCell => {
-	if (headerCell.innerHTML !== "Rediģēt") {
+	if (headerCell.innerHTML !== "Rediģēt" && headerCell.innerHTML !== "Dienas") {
         headerCell.addEventListener("click", () => {
             const tableElement = headerCell.parentElement.parentElement.parentElement;
             const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);

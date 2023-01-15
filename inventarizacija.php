@@ -26,16 +26,15 @@ require('backend/db_con.php');
                     <th>Nosaukums</th>
                     <th>Ievešanas datums</th>
                     <th>Termiņš</th>
-                    <th>Dienas<th>
+                    <th style="cursor: default;">Dienas</th>
                     <th>Kategorijas nosaukums</th>
                     <th>Plaukta ID</th>
-                    <th>Sektors<th>
-                    <th>Stavs<th>
-                    <th>Kategorijas ID<th>
+                    <th>Sektors</th>
+                    <th>Stavs</th>
                     <th>Rediģēt</th>
                 </thead>
                 <?php
-                    $query = "SELECT preces.Preces_nosaukums, preces.Datums, preces.Termins, TIMESTAMPDIFF(DAY, preces.Datums, preces.Termins) AS Days_left, kategorijas.Nosaukums, preces.Plaukta_ID, noliktava.Sektors, noliktava.Stavs, noliktava.Kategorijas_ID
+                    $query = "SELECT preces.*, TIMESTAMPDIFF(DAY, preces.Datums, preces.Termins) AS Days_left, kategorijas.Nosaukums, preces.Plaukta_ID, noliktava.Sektors, noliktava.Stavs, noliktava.Kategorijas_ID
                     FROM preces
                     LEFT JOIN kategorijas ON preces.Preces_kategorija = kategorijas.Kategorijas_ID
                     LEFT JOIN noliktava ON preces.Plaukta_ID = noliktava.Plaukta_ID;";
@@ -52,12 +51,29 @@ require('backend/db_con.php');
                         echo $row['Termins'];
                     }
                     ?></td>
-                    <td><?php echo $row['Days_left'];  ?></td>
+                    <td class="<?php 
+                 if ($row['Days_left'] > 90) {
+                     echo 'green';
+                 } elseif ($row['Days_left'] <= 90 && $row['Days_left'] > 30) {
+                     echo 'yellow';
+                 } elseif ($row['Termins'] != "0000-00-00") {
+                     echo 'red';
+                 }
+                 ?>"><?php if ($row['Termins'] != "0000-00-00") {
+                               $days = $row['Days_left'];
+                               $years = floor($days / 365);
+                               $remainingDays = fmod($days, 365);
+                               $months = floor($remainingDays / 30);
+                               $remainingDays = fmod($remainingDays, 30);
+                               $yearString = ($years % 10 == 1 && $years % 100 != 11) ? "$years gads" : "$years gadi";
+                               $monthString = ($months % 10 == 1 && $months % 100 != 11) ? "$months mēnesis" : "$months mēneši";
+                               $dayString = ($remainingDays % 10 == 1 && $remainingDays % 100 != 11) ? "$remainingDays diena" : "$remainingDays dienas";
+                               echo "{$yearString}, {$monthString}, {$dayString}";
+                           } ?></td>
                     <td><?php echo $row['Nosaukums']; ?></td>
                     <td><?php echo $row['Plaukta_ID']; ?></td>
                     <td><?php echo $row['Sektors']; ?></td>
                     <td><?php echo $row['Stavs']; ?></td>
-                    <td><?php echo $row['Kategorijas_ID']; ?></td>
                     <td>
                         <a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button class='dzest'>Dzēst</button></a>
                         <br>
