@@ -75,9 +75,9 @@ require('backend/db_con.php');
                     <td><?php echo $row['Sektors']; ?></td>
                     <td><?php echo $row['Stavs']; ?></td>
                     <td>
-                        <a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button class='dzest'>Dzēst</button></a>
+                        <a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button class='dzest1'>Dzēst</button></a>
                         <br>
-                        <a href="edit/edit-preces.php?preces_id=<?php echo $row["Preces_ID"]; ?>"><button class='labot'>Labot</button></a></td>
+                        <a href="edit/edit-preces.php?preces_id=<?php echo $row["Preces_ID"]; ?>"><button class='labot1'>Labot</button></a></td>
                 </tr>
                 <?php
                     }

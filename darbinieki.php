@@ -107,11 +107,11 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
                           <td name='display-admin_level'><?php echo $row['Admin']; ?></td>
                           <td>
                             <a href="backend/delete.php?Lietotaja_ID=<?php echo $row["Lietotaja_ID"]; ?>">
-                              <button class='dzest'>Dzēst</button>
+                              <button class='dzest1'>Dzēst</button>
                             </a>
                             <br>
                             <a href="edit/edit-user.php?user_id=<?php echo $row['Lietotaja_ID']; ?>">
-                              <button name='user-id' class='labot'>Labot</button>
+                              <button name='user-id' class='labot1'>Labot</button>
                             <!-- <button type='submit' style='display:none' value='Apstiprināt' name='aed' id='acceptbtn'></button> -->
                             </a>
                           </td>

@@ -58,7 +58,7 @@ if (isset($_REQUEST['nosaukums'])){
                     <tr class="table">
                         <td><?php echo $row["Kategorijas_ID"]; ?></td>
                         <td><?php echo $row['Nosaukums']; ?></td>
-                        <td><a href="backend/delete.php?Kategorijas_ID=<?php echo $row["Kategorijas_ID"];?>"><button id='dzest'>Dzēst</button></a><br><a href="editdata.php>"><button id='labot'>Labot</button></a></td>
+                        <td><a href="backend/delete.php?Kategorijas_ID=<?php echo $row["Kategorijas_ID"];?>"><button class="dzest1" id='dzest'>Dzēst</button></a><br><a href="editdata.php>"><button class="labot1" id='labot'>Labot</button></a></td>
                     </tr>
                     <?php
                         }
