@@ -1,7 +1,7 @@
 const select = document.getElementById("filter_param");
 const inputElements = document.querySelectorAll("form input[type='text'],form input[type='date'],form select");
 const selectCond = document.getElementById("condition_param");
-var selectCondOption = select.options
+var selectCondOptions = selectCond.options
 
 select.addEventListener("change", function() {
     const selectedValue = this.options[this.selectedIndex].value;
@@ -13,18 +13,36 @@ select.addEventListener("change", function() {
             } else {
                 inputElement.hidden = false;
             }
-
         } else if (selectedValue === "Preces_nosaukums") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                if (option.value !== "starts" &&
+                    option.value !== "ends" &&
+                    option.value !== "includes" &&
+                    option.value !== "exactly") {
+                        option.style.display = "none";
+                } else {
+                        option.style.display = "block";
+                }
+            }
         }else if (selectedValue === "Datums") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
+            }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                if (option.value !== "exactly") {
+                        option.style.display = "none";
+                } else {
+                        option.style.display = "block";
+                }
             }
         } else if (selectedValue === "Termins") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {

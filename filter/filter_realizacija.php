@@ -51,7 +51,7 @@ while($row = mysqli_fetch_array($result)) {
 echo $response;
 
 // Close the connection
-//$stmt->close();
-//$con->close();
+$stmt->close();
+$con->close();
 
 ?>

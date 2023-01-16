@@ -30,6 +30,7 @@ require('backend/db_con.php');
                     <option value="equal">Vienāds ar</option>
                     <option value="biggerequal">Lielāks vai vienāds ar</option>
                     <option value="bigger">Lielāks</option>
+                    <option value="exactly">Ir tieši</option>
                 </select>
                 <input id="Preces_ID" name="preces_ID" type="text" class="input" placeholder="ID">
                 <input id="Preces_nosaukums" name="Preces_nosaukums" type="text" class="input" placeholder="Nosaukums" hidden>
