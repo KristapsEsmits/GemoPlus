@@ -98,7 +98,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
                     ?>
                       <tr class="table" id='datatable'>
                           <td><?php echo $row["Lietotaja_ID"]; ?></td>
-                          <input name='display-user_id' class='edits' hidden><?php echo $row['Lietotaja_ID']; ?></input>
+                          <input name='display-user_id' class='edits' hidden></input>
                           <td name='display-username'><?php echo $row['Lietotajvards']; ?></td>
                           <td name='display-password'><?php echo $row['Parole']; ?></td>
                           <td name='display-firstname'><?php echo $row['Vards']; ?></td>
