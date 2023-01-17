@@ -1,7 +1,7 @@
 const select = document.getElementById("filter_param");
 const inputElements = document.querySelectorAll("form input[type='text'],form input[type='date'],form select");
 const selectCond = document.getElementById("condition_param");
-var selectCondOptions = selectCond.options
+var selectCondOptions = selectCond.options;
 
 select.addEventListener("change", function() {
     const selectedValue = this.options[this.selectedIndex].value;
@@ -13,6 +13,11 @@ select.addEventListener("change", function() {
             } else {
                 inputElement.hidden = false;
             }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                option.style.display = "block";
+            }
+            selectCond.value = 'equal';
         } else if (selectedValue === "Preces_nosaukums") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
@@ -24,12 +29,13 @@ select.addEventListener("change", function() {
                 if (option.value !== "starts" &&
                     option.value !== "ends" &&
                     option.value !== "includes" &&
-                    option.value !== "exactly") {
+                    option.value !== "equal") {
                         option.style.display = "none";
                 } else {
                         option.style.display = "block";
                 }
             }
+            selectCond.value = 'equal';
         }else if (selectedValue === "Datums") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
@@ -38,54 +44,110 @@ select.addEventListener("change", function() {
             }
             for (var i = 0; i < selectCondOptions.length; i++) {
                 var option = selectCondOptions.item(i);
-                if (option.value !== "exactly") {
+                if (option.value !== "equal") {
                         option.style.display = "none";
                 } else {
                         option.style.display = "block";
                 }
             }
+            selectCond.value = 'equal';
         } else if (selectedValue === "Termins") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                if (option.value !== "equal") {
+                        option.style.display = "none";
+                } else {
+                        option.style.display = "block";
+                }
+            }
+            selectCond.value = 'equal';
         } else if (selectedValue === "Cena_Bez_PVN") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                option.style.display = "block";
+            }
+            selectCond.value = 'equal';
         } else if (selectedValue === "PVN") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                if (option.value !== "equal" &&
+                    option.value !== "smaller" &&
+                    option.value !== "smallerequal" &&
+                    option.value !== "biggerequal" &&
+                    option.value !== "bigger") {
+                    option.style.display = "none";
+            } else {
+                    option.style.display = "block";
+            }
+            }
+            selectCond.value = 'equal';
         } else if (selectedValue === "Skaits") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                option.style.display = "block";
+            }
+            selectCond.value = 'equal';
         } else if (selectedValue === "Pārdotais_daudzums") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                option.style.display = "block";
+            }
+            selectCond.value = 'equal';
         } else if (selectedValue === "Kategorijas_ID") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                if (option.value !== "equal") {
+                    option.style.display = "none";
+                } else {
+                    option.style.display = "block";
+            }
+            }
+            selectCond.value = 'equal';
         } else if (selectedValue === "Lietotaja_ID") {
             if (inputElement.id !== selectedValue && inputElement.name !== "filter_param") {
                 inputElement.hidden = true;
             } else {
                 inputElement.hidden = false;
             }
+            for (var i = 0; i < selectCondOptions.length; i++) {
+                var option = selectCondOptions.item(i);
+                if (option.value !== "equal") {
+                    option.style.display = "none";
+                } else {
+                    option.style.display = "block";
+            }
+            }
+            selectCond.value = 'equal';
         }
     });
 });
@@ -116,7 +178,8 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 
     // Get the selected parameter
-    var selectedParam = document.querySelector("select[name='filter_param']").value;
+    var selectedParam = document.querySelector("select[id='filter_param']").value;
+    var conditionParam = document.querySelector("select[id='condition_param']").value;
     // Get the value of the corresponding form element
     var selectedParamValue = document.querySelector("#" + selectedParam).value;
 
@@ -130,7 +193,7 @@ form.addEventListener("submit", function(event) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     // Send the request
-    xhr.send("selected_param=" + selectedParam + "&selected_param_value=" + selectedParamValue);
+    xhr.send("selected_param=" + selectedParam + "&selected_param_value=" + selectedParamValue + "&condition_param=" + conditionParam);
 
     // Handle the response
     xhr.onreadystatechange = function() {

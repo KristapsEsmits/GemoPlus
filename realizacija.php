@@ -22,15 +22,14 @@ require('backend/db_con.php');
         <form action="" method="post">
             <div id="add-pop">
                 <select class="sinput" id="condition_param" name="filter_param">
-                    <option value="starts">Sākas ar</option>
-                    <option value="ends">Beidzas ar</option>
-                    <option value="includes">Satur</option>
+                    <option value='starts'>Sākas ar</option>
+                    <option value='ends'>Beidzas ar</option>
+                    <option value='includes'>Satur</option>
                     <option value="smaller">Mazāks par</option>
-                    <option value="smallerequal">Mazāks vai vienāds ar</option>
-                    <option value="equal">Vienāds ar</option>
-                    <option value="biggerequal">Lielāks vai vienāds ar</option>
-                    <option value="bigger">Lielāks</option>
-                    <option value="exactly">Ir tieši</option>
+                    <option value='smallerequal'>Mazāks vai vienāds ar</option>
+                    <option value='equal'>Vienāds ar</option>
+                    <option value='biggerequal'>Lielāks vai vienāds ar</option>
+                    <option value='bigger'>Lielāks</option>
                 </select>
                 <input id="Preces_ID" name="preces_ID" type="text" class="input" placeholder="ID">
                 <input id="Preces_nosaukums" name="Preces_nosaukums" type="text" class="input" placeholder="Nosaukums" hidden>
@@ -46,7 +45,7 @@ require('backend/db_con.php');
                 </select>
                 <input id="Skaits" name="skaits" type="text" class="input" placeholder="Skaits" hidden>
                 <input id="Pārdotais_daudzums" name="daudzums" type="text" class="input" placeholder="Pārdotais daudzums" hidden>
-                <select class="sinput" name="preces_kategorija" hidden>
+                <select id="Kategorijas_ID" class="sinput" name="preces_kategorija" hidden>
                     <?php
                         $query = "SELECT * FROM kategorijas";
                         $result = mysqli_query($con,$query);
@@ -76,7 +75,7 @@ require('backend/db_con.php');
                     <option value="Cena_Bez_PVN">Cena_Bez_PVN</option>
                     <option value="PVN">PVN</option>
                     <option value="Skaits">Skaits</option>
-                    <option value="Preces_kategorija">Kategorijas_ID</option>
+                    <option value="Kategorijas_ID">Kategorijas_ID</option>
                     <option value="Pārdotais_daudzums">Pārdotais_daudzums</option>
                     <option value="Lietotaja_ID">Lietotaja_ID</option>
                 </select>
