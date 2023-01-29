@@ -3,28 +3,29 @@ require('backend/db_con.php');
 
 session_start();
 
-if (isset($_POST['username'])){
+if (isset($_POST['username'])) {
+    $username = mysqli_real_escape_string($con, stripslashes($_POST['username']));
+    $password = mysqli_real_escape_string($con, stripslashes($_POST['password']));
 
-	$username = stripslashes($_REQUEST['username']);
+    $query = "SELECT * FROM `lietotaji` WHERE Lietotajvards='$username'";
+    $result = mysqli_query($con, $query);
 
-	$username = mysqli_real_escape_string($con,$username);
-	$password = stripslashes($_REQUEST['password']);
-	$password = mysqli_real_escape_string($con,$password);
-
-    $query = "SELECT * FROM `lietotaji` WHERE Lietotajvards LIKE '$username'";
-	$result = mysqli_query($con,$query);
-	$row = mysqli_fetch_array($result);
-        if($row["Lietotajvards"] == $username and password_verify($password, $row["Parole"])){
+    if (!$result) {
+        echo "Error executing query: " . mysqli_error($con);
+    } else if (mysqli_num_rows($result) == 0) {
+        echo "<div class='NepareizaParole'>Parole vai lietotājvārds ir nepareizs!</div>";
+    } else {
+        $row = mysqli_fetch_array($result);
+        if (password_verify($password, $row["Parole"])) {
             $_SESSION['username'] = $username;
             $_SESSION['userlevel'] = $row["Admin"];
             $_SESSION['userid'] = $row["Lietotaja_ID"];
             header("Location: index.php");
-         }else{
-            echo "<div class='NepareizaParole'>Parole vai lietotājvārds ir nepareizs!</div>";
         }
-    }else{
+    }
+}
 ?>
-<?php } ?>
+<?php?>
 
 
 
