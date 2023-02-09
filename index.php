@@ -25,6 +25,7 @@ require("backend/db_con.php");
                 <a onClick="Funkcija5()"><button class="menu-btn">Realizācija</button></a>
                 <a onClick="Funkcija6()"><button class="menu-btn">Inventarizācija</button></a>
                 <a onClick="Funkcija7()"><button class="menu-btn">Eksportēt</button></a>
+                <a onClick="Funkcija8()"><button class="menu-btn">BUJ</button></a>
                 <?php
                     if ($_SESSION["userlevel"] == 1) {
                         echo "<a onClick=\"Funkcija2()\"><button class=\"menu-btn\">Darbinieki</button></a>";

@@ -26,6 +26,10 @@ function Funkcija6(){
     document.getElementById("embed").src = "inventarizacija.php";
 }
 
-function Fukcija7(){
+function Funkcija7(){
     document.getElementById("embed").src = "eksportesana.php"
+}
+
+function Funkcija8(){
+    document.getElementById("embed").src = "buj.php"
 }
