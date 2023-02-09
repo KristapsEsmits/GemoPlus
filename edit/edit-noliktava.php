@@ -42,8 +42,6 @@ if (isset($_POST['update_plaukts'])){
         <link rel="stylesheet" href="../resources/css/table.css"/>
     </head>
 <body>
-    <?php
-      if ($_SESSION["userlevel"] == 1) { ?>
         <div class="Fields">
           <h1 name="header-text">Plaukta ar ID <?php echo $plaukta_id; ?> rediģēšana</h1>
         </div>
@@ -79,9 +77,5 @@ if (isset($_POST['update_plaukts'])){
             </div>
         </div>
         <script src="resources/js/table.js"></script>
-      <?php } else {
-        echo "<h1>get rēkt, tev nav pieejas</h1>";
-      }
-    ?>
 </body>
 </body>

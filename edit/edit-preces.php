@@ -47,8 +47,6 @@ if (isset($_POST['update_prece'])){
         <link rel="stylesheet" href="../resources/css/table.css"/>
     </head>
 <body>
-<?php
-      if ($_SESSION["userlevel"] == 1) { ?>
         <div class="Fields">
           <h1 name="header-text">Preces ar ID <?php echo $preces_id; ?> rediģēšana</h1>
         </div>
@@ -100,9 +98,5 @@ if (isset($_POST['update_prece'])){
             </div>
         </div>
         <script src="resources/js/table.js"></script>
-      <?php } else {
-        echo "<h1>get rēkt, tev nav pieejas</h1>";
-      }
-    ?>
 </body>
 </body>
