@@ -61,6 +61,7 @@ body {
   color: white;
   margin-left: 110px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .content .fbtn:hover {
