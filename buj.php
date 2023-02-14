@@ -15,62 +15,48 @@
     <h1 class="heading">Biežāk uzdotie jautājumi</h1>
     <section class="faq-container">
         <div>
-            <h1 class="faq-page">Jautājums Nr1?</h1>
+            <h1 class="faq-page">Kur ir atrodama lietotāja rokasgrāmata?</h1>
             <div class="faq-body">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-                    necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-                    aperiam.
-                    Perspiciatis, porro!</p>
+                <p>Lietottāja rokasgrāmatu ir iespējams atrast <a href ="Lietotaju_instrukcija.docx" download>šeit</a>!</p>
             </div>
         </div>
         <hr class="hr-line">
         <div>
-            <h1 class="faq-page">Garāks jautājums NR2?</h1>
+            <h1 class="faq-page">Kā ir iespējams reģistrēties?</h1>
             <div class="faq-body">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-                    necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-                    aperiam.
-                    Perspiciatis, porro!</p>
+                <p>Diemžēl pašam nav iespējams reģistrēties! Lai reģistrētu jaunus lietotājus jautā savam administrātoram, kas to arī paveiks :3</p>
             </div>
         </div>
         <hr class="hr-line">
         <div>
-            <h1 class="faq-page">Savādāks jautājums NR3?</h1>
+            <h1 class="faq-page">Vai ir iespējams kārtot datus?</h1>
             <div class="faq-body">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-                    necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-                    aperiam.
-                    Perspiciatis, porro!</p>
+                <p>Lai kārtotu datus dodies uz kādu no sadaļām, kur to vēlies darīt. Pēc tam noklikšķini uz attiecīgās tabulas galvenes , kuru vēlies kārtot.</p>
+                <p>Vienreiz noklikšķinot dati tiks kārtoti A-Z ņemot izvēlēto tabulas aili kā primāro kārtošanas objektu.</p>
+                <p>Otrreiz noklikšķinot dati tiks kārtoti Z-A, ņemot izvēlēto tabulas aili kā primāro kārtošanas objektu.</p>
             </div>
         </div>
         <hr class="hr-line">
         <div>
-            <h1 class="faq-page">Pavisam cits jautājums NR4?</h1>
+            <h1 class="faq-page">Vai ir iespējams atgriezt nejauši dzēstos ierakstus?</h1>
             <div class="faq-body">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-                    necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-                    aperiam.
-                    Perspiciatis, porro!</p>
-            </div>
-        </div>
-        <hr class="hr-line">
-        <h1 class="faq-page">Ļoti labs jautājums NR5?</h1>
-        <div>
-            <div class="faq-body">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-                    necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-                    aperiam.
-                    Perspiciatis, porro!</p>
+                <p>Diemžēl nav iespējams atjaunot dzēstos ierakstus!</p>
             </div>
         </div>
         <hr class="hr-line">
         <div>
-            <h1 class="faq-page">Interesants jautājums NR6?</h1>
+            <h1 class="faq-page">Es nespēju pievienot vai dzēst darbiniekus?</h1>
             <div class="faq-body">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-                    necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-                    aperiam.
-                    Perspiciatis, porro!</p>
+                <p>Lai varētu rīkoties ar darbinieku datiem ir jābūt administrātora privilēgijām.</p>
+                <p>Ja tev ir jābūt šādai peejai un tev tās nav kontaktējies ar kādu no administrātoriem!</p>
+            </div>
+        </div>
+        <hr class="hr-line">
+        <div>
+            <h1 class="faq-page">Nespēju atcerēties savu lietotājvārdu un/vai paroli?</h1>
+            <div class="faq-body">
+                <p>Ja nespējat atcerēties savu lietotājvārdu un/vai paroli, sazinaties ar uzņēmuma administratoru,
+                    kā arī viņš palīdzēs tādos gadījumos, ja jūsu lietotājvārds un/vai parole ir nodota trešajām personām, uzstādot jūsu lietotājvārdam jaunu paroli.</p>
             </div>
         </div>
     </section>

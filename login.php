@@ -58,7 +58,7 @@ if (isset($_POST['username'])) {
                 <img src="resources/img/logo.png">
             </div>
             <button id="closepopup">Aizvērt</button>
-            <p>Ja aizmirsāt paroli kontaktējieties ar administrātoru!</p>
+            <p>Ja nespējat atcerēties savu lietotājvārdu un/vai paroli, kontaktējaties ar uzņēmuma administratoru.</p>
         </div>
     </div>
     <script src="resources/js/login.js"></script>
