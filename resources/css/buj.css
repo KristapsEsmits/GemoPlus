@@ -8,7 +8,7 @@ body {
     padding: 20px 60px;
 }
 
-.faq-container{
+.container{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -20,7 +20,7 @@ body {
   
 }
 
-.faq-page {
+.jautajums {
     color: #444;
     cursor: pointer;
     padding: 30px;
@@ -29,17 +29,17 @@ body {
     margin: auto;
 }
 
-.faq-body{
+.buj-atbilde { 
     margin: auto;
     width: 55%; 
 }
 
-.faq-body {
+.buj-atbilde {
     display: none;
     overflow: hidden;
 }
 
-.faq-page:after {
+.jautajums:after {
     content: '\02795';
     font-size: 13px;
     float: right;
