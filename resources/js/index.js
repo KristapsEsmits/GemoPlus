@@ -27,7 +27,7 @@ function Funkcija6(){
 }
 
 function Funkcija7(){
-    document.getElementById("embed").src = "eksportesana.php"
+    document.getElementById("embed").src = "eksports.php"
 }
 
 function Funkcija8(){
