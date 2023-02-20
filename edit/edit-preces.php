@@ -16,7 +16,7 @@ if (isset($_POST['update_prece'])){
   $datums = $_POST['datums'];
   $skaits = $_POST['skaits'];
   $termins = $_POST['termins'];
-  $PVN = $_POST['PVN'];
+  $PVN = $_POST['pvn_izvele'];
   $cena_bez_PVN = $_POST['cena_bez_PVN'];
   $pardotais_daudzums = $_POST['pardotais_daudzums'];
   $kategorija = $_POST['kategorija'];
@@ -75,7 +75,13 @@ if (isset($_POST['update_prece'])){
                             <td><input name='datums' value="<?php echo $prece['Datums']; ?>" required></input></td>
                             <td><input name='skaits' value="<?php echo $prece['Skaits']; ?>" required></input></td>
                             <td><input name='termins' value="<?php echo $prece['Termins']; ?>" required></input></td>
-                            <td><input name='PVN' value="<?php echo $prece['PVN']; ?>" required></input></td>
+                            <td>
+                                <select class="sinput" name="pvn_izvele">
+                                  <option value="21" <?php echo ($prece['PVN'] === "21") ? 'selected' : ''; ?>>21%</option>
+                                  <option value="12" <?php echo ($prece['PVN'] === "12") ? 'selected' : ''; ?>>12%</option>
+                                  <option value="5" <?php echo ($prece['PVN'] === "5") ? 'selected' : ''; ?>>5%</option>
+                                </select>
+                            </td>
                             <td><input name='cena_bez_PVN' value="<?php echo $prece['Cena_Bez_PVN']; ?>" required></input></td>
                             <td><input name='pardotais_daudzums' value="<?php echo $prece['Pārdotais_daudzums']; ?>" required></input></td>
                             <td><select name='kategorija'>
