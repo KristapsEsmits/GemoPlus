@@ -27,33 +27,6 @@ if (isset($_POST['update_user'])){
   if ($result) {
     header('Location: ../darbinieki.php');
   }
-
-  
-  /*$username = stripslashes($_REQUEST['display-username']);
-	$username = mysqli_real_escape_string($con,$username);
-
-	$password = stripslashes($_REQUEST['display-password']);
-	$password = mysqli_real_escape_string($con,$password);
-
-  $phone = stripslashes($_REQUEST['display-phone']);
-	$phone = mysqli_real_escape_string($con,$phone);
-
-	$name = stripslashes($_REQUEST['display-firstname']);
-	$name = mysqli_real_escape_string($con,$name);
-
-  $lastname = stripslashes($_REQUEST['display-lastname']);
-	$lastname = mysqli_real_escape_string($con,$lastname);
-
-  $admin = $_REQUEST['display-admin_level'];
-
-  $query = "UPDATE lietotaji SET Lietotajvards='$username',Parole='$password',Vards='$name',Uzvards='$lastname',Talr_Nr='$phone',Admin='$admin'
-            WHERE Lietotaja_ID = $user_id";
-  $result = mysqli_query($con,$query);
-
-
-    if($result){
-      echo("<h1 id='veiksmigi'>Veiksmīgi atjaunots!!</h1>");
-    }*/
 }
 ?>
 

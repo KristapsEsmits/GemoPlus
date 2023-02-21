@@ -54,4 +54,3 @@ document.getElementById("close-btn").addEventListener("click", function() {
     document.getElementById("add-pop").style.display = "none";
     document.getElementById("add-btn").style.display = "block";
 });
-

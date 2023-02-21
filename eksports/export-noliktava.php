@@ -16,4 +16,5 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 $xlsx = SimpleXLSXGen::fromArray($noliktava);
-$xlsx->downloadAs('Noliktava.xlsx'); 
+$xlsx->downloadAs('Noliktava.xlsx');
+?>
