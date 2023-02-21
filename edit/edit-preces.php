@@ -95,7 +95,19 @@ if (isset($_POST['update_prece'])){
                                   }
                               ?>
                             </select></td>
-                            <td><input name='plaukta_id' value="<?php echo $prece['Plaukta_ID']; ?>" required></input></td>
+                            <td><select class="sinput" name="plaukta_id">
+                    <?php
+                        $query = "SELECT * FROM noliktava
+                                  LEFT JOIN kategorijas
+                                         ON kategorijas.Kategorijas_ID = noliktava.Kategorijas_ID";
+                        $result = mysqli_query($con,$query);
+                        while($row = mysqli_fetch_array($result)) {
+                        ?>
+                        <option name="plaukta_nr" value="<?php echo $row["Plaukta_ID"]; ?>"><?php echo "Plaukts ar ID " . $row["Plaukta_ID"] . ", sektors " . $row["Sektors"] . ", stāvs " . $row["Stavs"] . ", kategorija " . $row["Nosaukums"]; ?></option>
+                        <?php
+                        }
+                    ?>
+                </select></td>
                             <td><?php echo $prece['Lietotaja_ID']; ?></td>
                             <td><button class='acceptbtn' type='submit' name='update_prece'>Saglabāt</button></td>
                         </tr>
