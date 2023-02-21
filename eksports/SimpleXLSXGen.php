@@ -638,9 +638,9 @@ class SimpleXLSXGen
 
   public function date2excel($year, $month, $day, $hours = 0, $minutes = 0, $seconds = 0)
   {
-    $excelTime = (($hours * 3600) + ($minutes * 60) + $seconds) / 86400;
+    $excelTime = (((int)$hours * 3600) + ((int)$minutes * 60) + (int)$seconds) / 86400;
 
-    if ($year === 0) {
+    if (intval($year) === 0) {
       return $excelTime;
     }
 
@@ -661,7 +661,7 @@ class SimpleXLSXGen
     //    Calculate the Julian Date, then subtract the Excel base date (JD 2415020 = 31-Dec-1899 Giving Excel Date of 0)
     $century = substr($year, 0, 2);
     $decade = substr($year, 2, 2);
-    $excelDate = floor((146097 * $century) / 4) + floor((1461 * $decade) / 4) + floor((153 * $month + 2) / 5) + $day + 1721119 - $myExcelBaseDate + $excel1900isLeapYear;
+    $excelDate = floor((146097 * (int)$century) / 4) + floor((1461 * (int)$decade) / 4) + floor((153 * (int)$month + 2) / 5) + (int)$day + 1721119 - $myExcelBaseDate + $excel1900isLeapYear;
 
     return (float) $excelDate + $excelTime;
   }

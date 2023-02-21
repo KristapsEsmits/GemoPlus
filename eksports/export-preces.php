@@ -11,7 +11,7 @@ $query = "SELECT * FROM preces";
 $result = mysqli_query($con,$query);
 if (mysqli_num_rows($result) > 0) {
   foreach ($result as $row) {
-    $preces = array_merge($preces, array(array($row["Preces_ID"], $row["Preces_nosaukums"], $row["Datums"], $row["Skaits"], $row["Termins"], $row["PVN"], $row["Cena_Bez_PVN"], $row["Pardotais_daudzums"], $row["Preces_kategorija"], $row["Plaukta_ID"], $row["Lietotaja_ID"])));
+    $preces = array_merge($preces, array(array($row["Preces_ID"], $row["Preces_nosaukums"], $row["Datums"], $row["Skaits"], $row["Termins"], $row["PVN"], $row["Cena_Bez_PVN"], $row["Pārdotais_daudzums"], $row["Preces_kategorija"], $row["Plaukta_ID"], $row["Lietotaja_ID"])));
   }
 }
 

@@ -15,10 +15,10 @@ require("backend/db_con.php");
     <form action="eksports/export-preces.php" method="post">
         <input type="submit" name="submit" value="Preces eksports uz excel"/>
     </form>
-    <form action="eksports/export.php" method="post">
+    <form action="eksports/export-noliktava.php" method="post">
         <input type="submit" name="submit" value="Noliktava eksports uz excel"/>
     </form>
-    <form action="eksports/export.php" method="post">
+    <form action="eksports/export-darbinieki.php" method="post">
         <input type="submit" name="submit" value="Darbinieki eksports uz excel"/>
     </form>
     <form action="eksports/export-kat.php" method="post">
