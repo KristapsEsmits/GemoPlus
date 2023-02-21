@@ -16,8 +16,8 @@ if (isset($_POST['update_kategorija'])){
   $nosaukums = $_POST['nosaukums'];
 
   $query = "UPDATE kategorijas
-            SET 
-            WHERE Plaukta_ID='$Plaukta_ID'";
+            SET Nosaukums='$nosaukums'
+            WHERE Kategorijas_ID='$kategorijas_id'";
   $result = mysqli_query($con, $query);
   if ($result) {
     header('Location: ../noliktava.php');
@@ -42,7 +42,7 @@ if (isset($_POST['update_kategorija'])){
     <?php
       if ($_SESSION["userlevel"] == 1) { ?>
         <div class="Fields">
-          <h1 name="header-text">Plaukta ar ID <?php echo $plaukta_id; ?> rediģēšana</h1>
+          <h1 name="header-text">Kategorijas ar ID <?php echo $kategorijas_id; ?> rediģēšana</h1>
         </div>
         <div class="list">
             <div class="tabulaBox">
@@ -55,21 +55,9 @@ if (isset($_POST['update_kategorija'])){
                     </thead>
                     <form action="" method="post">
                         <tr class="table">
-                            <td hidden><input name='plaukta_id' value="<?php echo $plaukts["Plaukta_ID"]; ?>" hidden></input></td>
-                            <td><input name='sektors' value="<?php echo $plaukts['Sektors']; ?>" required></input></td>
-                            <td><input name='stavs' value="<?php echo $plaukts['Stavs']; ?>" required></input></td>
-                            <td><select name='kategorija'>
-                                  <?php
-                                      $query = "SELECT * FROM kategorijas";
-                                      $result = mysqli_query($con,$query);
-                                      while($row = mysqli_fetch_array($result)) {
-                                      ?>
-                                      <option name="kategorijas_id" value=<?php echo $row["Kategorijas_ID"]; ?>><?php echo $row["Nosaukums"]; ?></option>
-                                      <?php
-                                      }
-                                  ?>
-                              </select></td>
-                              <td><button class='acceptbtn' type='submit' name='update_plaukts'>Saglabāt</button></td>
+                            <td hidden><input name='kategorijas_id' value="<?php echo $kategorija["Kategorijas_ID"]; ?>" hidden></input></td>
+                            <td><input name='nosaukums' value="<?php echo $kategorija['Nosaukums']; ?>" required></input></td>
+                              <td><button class='acceptbtn' type='submit' name='update_kategorija'>Saglabāt</button></td>
                         </tr>
                     </form>
                 </table>

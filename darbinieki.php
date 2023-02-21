@@ -66,10 +66,10 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQU
           <button id="add-btn">Pievienot Lietotāju</button>
           <form action="" method="post">
             <div id="add-pop">
-                <input name="name" type="text" class="input" minlength="3" maxlength="25" placeholder="Vārds" required>
-                <input name="lastname" type="text" class="input" minlength="3" maxlength="25" placeholder="Uzvārds" required>
-                <input name="phone" type="tel" minlength="4" maxlength="8" class="input" placeholder="Telefona numurs" required>
-                <input name="username" type="text" class="input" minlength="3" maxlength="25" placeholder="Lietotājvārds" required>
+                <input name="name" type="text" class="input" minlength="3" maxlength="25" placeholder="Vārds" required pattern="[a-zA-Zāčēģīķļņšūž]+">
+                <input name="lastname" type="text" class="input" minlength="3" maxlength="25" placeholder="Uzvārds" required pattern="[a-zA-Zāčēģīķļņšūž]+">
+                <input name="phone" type="tel" minlength="4" maxlength="8" class="input" placeholder="Telefona numurs [4-8 cipari]" required pattern="[0-9]+">
+                <input name="username" type="text" class="input" minlength="3" maxlength="25" placeholder="Lietotājvārds [BEZ GARUMZĪMĒM]" required pattern="[a-zA-Z0-9]+">
                 <input name="password" type="password" class="input" minlength="3" maxlength="25" placeholder="Parole" required>
                 <input name="admin" type="checkbox" id="html" name="fav_language" value="HTML">
                 <label class="txt">Ir Admin</label>

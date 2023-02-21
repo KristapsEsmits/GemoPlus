@@ -127,9 +127,9 @@ require('backend/db_con.php');
                     <td><?php echo $row['Nosaukums']; ?></td>
                     <td><?php echo $row['Lietotaja_ID']; ?></td>
                     <td>
-                        <a href="<?php echo $row["Preces_ID"]; ?>"><button class='dzest1'>Dzēst</button></a>
+                    <a href="backend/delete.php?Preces_ID=<?php echo $row["Preces_ID"]; ?>"><button class='dzest1' class='dzest'>Dzēst</button></a>
                         <br>
-                        <a href="../edit/edit-preces.php?preces_id=<?php echo $row["Preces_ID"]; ?>"><button class='labot1'>Labot</button></a></td>
+                        <a href="edit/edit-preces.php?preces_id=<?php echo $row["Preces_ID"]; ?>"><button class='labot1'>Labot</button></a></td>
                 </tr>
                 <?php
                     }
