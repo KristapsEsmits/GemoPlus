@@ -111,4 +111,4 @@ if (isset($_POST['update_user'])){
       }
     ?>
 </body>
-</body>
+</html>

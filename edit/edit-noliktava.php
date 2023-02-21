@@ -78,4 +78,4 @@ if (isset($_POST['update_plaukts'])){
         </div>
         <script src="resources/js/table.js"></script>
 </body>
-</body>
+</html>

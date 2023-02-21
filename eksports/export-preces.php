@@ -16,4 +16,5 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 $xlsx = SimpleXLSXGen::fromArray($preces);
-$xlsx->downloadAs('Preces.xlsx'); 
+$xlsx->downloadAs('Preces.xlsx');
+?>

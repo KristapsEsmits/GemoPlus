@@ -81,4 +81,4 @@ if (isset($_POST['update_kategorija'])){
       }
     ?>
 </body>
-</body>
+</html>

@@ -99,4 +99,4 @@ if (isset($_POST['update_prece'])){
         </div>
         <script src="resources/js/table.js"></script>
 </body>
-</body>
+</html>
