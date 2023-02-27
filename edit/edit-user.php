@@ -10,7 +10,6 @@ if (isset($_GET['user_id'])) {
 }
 
 if (isset($_POST['update_user'])) {
-
 	$user_id = $_POST['user_id'];
   $username = $_POST['username'];
   $password = $_POST['password'];
