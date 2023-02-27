@@ -9,7 +9,7 @@ if (isset($_GET['user_id'])) {
   $user = mysqli_fetch_assoc($result);
 }
 
-if (isset($_POST['update_user'])){
+if (isset($_POST['update_user'])) {
 
 	$user_id = $_POST['user_id'];
   $username = $_POST['username'];
@@ -40,14 +40,16 @@ if (isset($_POST['update_user'])){
         <link rel="icon" href="../resources/favicons/fav.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,700&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../resources/css/table.css"/>
     </head>
-<body>
-<?php
-      if ($_SESSION["userlevel"] == 1) { ?>
+    <body>
+        <?php
+            if ($_SESSION["userlevel"] == 1) { ?>
         <div class="Fields">
-          <h1 name="header-text">Lietotāja ar ID <?php echo $user_id; ?> rediģēšana</h1>
+            <h1 name="header-text">Lietotāja ar ID 
+                <?php echo $user_id; ?> rediģēšana
+            </h1>
         </div>
         <div class="list">
             <div class="tabulaBox">
@@ -62,9 +64,11 @@ if (isset($_POST['update_user'])){
                         <th>Admin</th>
                         <th>Rediģēt</th>
                     </thead>
-                      <form action="" method="post">
+                    <form action="" method="post">
                         <tr class="table" id='datatable'>
-                            <td><?php echo $user["Lietotaja_ID"]; ?></td>
+                            <td>
+                                <?php echo $user["Lietotaja_ID"]; ?>
+                            </td>
                             <td hidden><input name='user_id' value="<?php echo $user['Lietotaja_ID']; ?>" hidden></input></td>
                             <td><input name='username' value="<?php echo $user['Lietotajvards']; ?>" required></input></td>
                             <td><input name='password' value="" required></input></td>
@@ -74,14 +78,14 @@ if (isset($_POST['update_user'])){
                             <td><input name='admin_level' value="<?php echo $user['Admin']; ?>" required></input></td>
                             <td><button class='acceptbtn' type='submit' name='update_user'>Saglabāt</button></td>
                         </tr>
-                      </form>
+                    </form>
                 </table>
             </div>
         </div>
         <script src="resources/js/table.js"></script>
-      <?php } else {
-        echo "<h1>get rēkt, tev nav pieejas</h1>";
-      }
-    ?>
-</body>
+        <?php } else {
+            echo "<h1>get rēkt, tev nav pieejas</h1>";
+            }
+            ?>
+    </body>
 </html>
