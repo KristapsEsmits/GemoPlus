@@ -58,6 +58,21 @@
                     <p>Ja nespējat atcerēties savu lietotājvārdu un/vai paroli, sazinaties ar administratoru <a href="https://discord.gg/7RMSnJPu" target="blank">šeit!</a></p>
                 </div>
             </div>
+            <hr class="hr-line">
+            <div>
+                <h1 class="jautajums">Atradu kļūmi mājaslapā, kā man rīkoties?</h1>
+                <div class="buj-atbilde">
+                    <p>Ja tiek atrasta kāda kļūme mājaslapā, par to ir jāziņo administrātoram un tā tiks izlabota, sazināties ar administrātoru <a href="https://discord.gg/7RMSnJPu" target="blank">šeit!</a></p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div>
+                <h1 class="jautajums">Nevēlos vairs darboties mājaslapā, kā izdzēst profilu?</h1>
+                <div class="buj-atbilde">
+                    <p>Lai dzēstu profilu nepieciešams sazināties ar administrātoru <a href="https://discord.gg/7RMSnJPu" target="blank">šeit!</a></p>
+                </div>
+            </div>
+            <hr class="hr-line">
         </section>
         <script src="resources/js/index.js"></script>
     </body>
